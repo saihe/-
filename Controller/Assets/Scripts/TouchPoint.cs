@@ -9,8 +9,6 @@ public class TouchPoint : MonoBehaviour {
     private Vector2 point;
     
 
-
-
 	// Use this for initialization
 	void Start () {
         //タッチパッド非表示
