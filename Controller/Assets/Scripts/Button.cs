@@ -12,10 +12,16 @@ public class Button : MonoBehaviour {
 
     IEnumerator clickButton()
     {
+        int i = 0;
         while (true)
         {
             if (Input.GetMouseButtonDown(0))
             {
+                i++;
+                if(i > 1)
+                {
+                    break;
+                }
                 print("hoge");
             }
             yield return new WaitForEndOfFrame();

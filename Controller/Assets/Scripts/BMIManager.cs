@@ -52,13 +52,13 @@ public class BMIManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //BMIゲージ(slider)を取得する
-        BMIgauge = GameObject.Find("BMI").GetComponent<Slider>();
+        BMIgauge = GameObject.Find("BMIguage").GetComponent<Slider>();
 
         //BMIゲージにあるFill(BMI)を取得する→バーの色を変えるため
         BMIImage = GameObject.Find("Fill(BMI)").GetComponent<Image>();
 
         //Tゲージ(slider)を取得する
-        Tgauge = GameObject.Find("T").GetComponent<Slider>();
+        //Tgauge = GameObject.Find("T").GetComponent<Slider>();
     }
 
     // Update is called once per frame
@@ -116,7 +116,7 @@ public class BMIManager : MonoBehaviour {
         }*/
 
         //Tゲージ量によりTレベルの表示非表示
-        if(t > 65)
+        /*if(t > 65)
         {
             tLevel2.SetActive(true);
         }
@@ -130,6 +130,6 @@ public class BMIManager : MonoBehaviour {
             tLevel2.SetActive(false);
             tLevel3.SetActive(false);
         }
-        Tgauge.value = t;
+        Tgauge.value = t;*/
     }
 }
