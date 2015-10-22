@@ -1,20 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 public class Button : MonoBehaviour {
 
+    
     public void OnGUI()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            print("pause");
-            Time.timeScale = 0;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            print("start");
-            Time.timeScale = 0;
-        }
+        StartCoroutine(clickButton());
     }
 
+    IEnumerator clickButton()
+    {
+        while (true)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                print("hoge");
+            }
+            yield return new WaitForEndOfFrame();
+        }
+    }
 }
