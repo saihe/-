@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
     //タッチした位置と移動した位置の差分ベクトル
     private Vector3 direction;
 
-    private Vector3 flickJump;
+    //private Vector3 flickJump;
 
     //directionに入れる座標
     private double x;
@@ -123,7 +123,7 @@ public class Player : MonoBehaviour {
             {
                 print("Flick");
                 //
-                flickJump = new Vector3((float)x, 5f, (float)z);
+                //flickJump = new Vector3((float)x, 5f, (float)z);
                 //Rigitbodyの影響で少しずつ傾くのを逐一初期化する
                 //初期化しないとそのうちコケる
                 transform.rotation = Quaternion.LookRotation(new Vector3(0f, 0f, 0f));
