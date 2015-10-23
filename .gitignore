@@ -20,6 +20,7 @@
 /Dungeon/Assets/UnityChan/License/キャラクター利用のガイドライン.pdf.meta
 /Dungeon/Assets/UnityChan/License/ユニティちゃんライセンス条項.pdf
 /Dungeon/Assets/UnityChan/License/ユニティちゃんライセンス条項.pdf.meta
+//UnityLockfile
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -42,3 +43,5 @@
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
 /UnityChan_1_2.unitypackage
+/Controller/Assets/Fonts/mplus-TESTFLIGHT-060
+/Controller/Temp/UnityLockfile
