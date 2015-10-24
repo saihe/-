@@ -12,20 +12,20 @@ public class TouchPoint : MonoBehaviour {
     private Vector2 slidPoint;
 
 
-    // Use this for initialization
     void Start () {
         //タッチパッド非表示
         touchPad.SetActive(false);
         slidePad.SetActive(false);
 	}
 	
-	// Update is called once per frame
 	void Update () {
         createPad();
 	}
 
+    //タッチした場所としている場所にイメージを張る
     public void createPad()
     {
+        //タッチした場所
         if (Input.GetMouseButtonDown(0))
         {
             //タッチ地点の取得
@@ -37,6 +37,8 @@ public class TouchPoint : MonoBehaviour {
             //タッチパッド表示
             touchPad.SetActive(true);
         }
+
+        //タッチしてる場所
         if (Input.GetMouseButton(0))
         {
             //タッチ地点の取得
@@ -50,6 +52,7 @@ public class TouchPoint : MonoBehaviour {
 
         }
 
+        //イメージを非表示
         if (Input.GetMouseButtonUp(0))
         {
             touchPad.SetActive(false);
