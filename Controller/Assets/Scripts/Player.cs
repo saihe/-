@@ -41,12 +41,9 @@ public class Player : MonoBehaviour {
     //回転速度
     private float rotationSpeed = 10000.0f;
 
-    //カメラ
-    GameObject cam;
 
 	void Start () {
-        cam = GameObject.Find("Main Camera");
-        print(cam);
+
 	}
 	
 	void Update () {
@@ -96,21 +93,20 @@ public class Player : MonoBehaviour {
                 //指移動量Mathf.Abs(float value)でvalueの絶対値を返す
                 if (Mathf.Abs((float)x) > flickJdg || Mathf.Abs((float)z) > flickJdg)
                 {
+                    tapOk = false;
                     print("Flick stanby OK");
                     //フリックであると判定する
                     flickOk = true;
                 }
-                /*//必要か微妙
-                else
-                {
-                    return;
-                }
-                */
             }
 
             //タッチ位置と移動位置が同じなら移動
-            else
+            //else if (dragPoint != touch)
+            //フリックでもタップでもなければ移動
+            //else
+            else if (dragPoint != touch)
             {
+
                 //タップ判定オフ
                 tapOk = false;
 
@@ -128,8 +124,15 @@ public class Player : MonoBehaviour {
                     moveTo = new Vector3(cm.x * -1, 0, cm.z * -1) / 100;
                 }
 
+                print(moveTo * speed);
+
                 //移動
                 transform.Translate(moveTo * speed);
+            }
+            else
+            {
+                flickOk = false;
+                tapOk = false;
             }
         }
 
@@ -158,6 +161,7 @@ public class Player : MonoBehaviour {
                 //ジャンプ
                 transform.Translate(0, 5f, 0);
                 print("Tap");
+                tapOk = false;
             }
         }
     }
