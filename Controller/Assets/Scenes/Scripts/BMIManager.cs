@@ -57,14 +57,13 @@ public class BMIManager : MonoBehaviour {
     //
     private float bmiCounter = 0;
 
-
+    //他のスクリプトでbmi呼ぶ用
     public float getBMI()
     {
         return bmi;
     }
 
 
-    // Use this for initialization
     void Start () {
         //BMIゲージ(slider)を取得する
         BMIguage = GameObject.Find("BMIguage").GetComponent<Slider>();
@@ -82,8 +81,8 @@ public class BMIManager : MonoBehaviour {
         t = 33;
     }
 
-    // Update is called once per frame
     void Update () {
+        //BMI・Tゲージ監視
         changeBMIguage();
         changeTguage();
 	}
@@ -92,9 +91,9 @@ public class BMIManager : MonoBehaviour {
     public void changeBMIguage()
     {
         //デバッグ用ゲージ上昇・200で0になる
-        
-        bmi -= 1.0f;
         /*
+        bmi -= 1.0f;
+        
         if (bmi > 200)
         {
             bmi = 0;
@@ -159,11 +158,6 @@ public class BMIManager : MonoBehaviour {
         Tguage.value = t;
     }
 
-    public void ppp()
-    {
-         print("hoge");
-    }
-
     //T・FiP
     public void tFiP()
     {
@@ -184,7 +178,7 @@ public class BMIManager : MonoBehaviour {
     //スキル
     public void skill()
     {
-        if (t > 33)
+        if (t > 66)
         {
             bmiCounter = 0;
             t = 33;

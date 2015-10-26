@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Stage : MonoBehaviour {
 
+    //ポーズ中かどうか
+    private bool pause;
+
     //ボス
     public GameObject Boss;
 
@@ -15,9 +18,20 @@ public class Stage : MonoBehaviour {
     //BMIManagerコンポーネント
     private BMIManager bmiManager;
 
+    public bool setPause(bool p)
+    {
+        pause = p;
+        return pause;
+    }
+
+    public bool getPause()
+    {
+        return pause;
+    }
+
 	// Use this for initialization
 	void Start () {
-        bmiManager = GetComponent<BMIManager>();
+        bmiManager = FindObjectOfType<BMIManager>();
 	}
 	
 	// Update is called once per frame
