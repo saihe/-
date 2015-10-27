@@ -17,7 +17,7 @@ public class Button : MonoBehaviour {
     BMIManager bmiManager;
 
     //Stageコンポーネント
-    Stage stage;
+    StageManager stage;
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class Button : MonoBehaviour {
         bmiManager = FindObjectOfType<BMIManager>();
 
         //Stageコンポーネント
-        stage = FindObjectOfType<Stage>();
+        stage = FindObjectOfType<StageManager>();
 
         //初期化
         tfip = false;

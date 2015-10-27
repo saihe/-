@@ -4,10 +4,11 @@ using System.Collections;
 public class Result : MonoBehaviour {
 
     //ステージクリアかどうか
-    public bool clear;
+    private bool clear;
+    private bool gameOver;
 
     //Stageコンポーネント
-    private Stage stage;
+    private StageManager stage;
 
     //クリア画面
     public GameObject clearScreen;
@@ -17,8 +18,8 @@ public class Result : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        stage = GetComponent<Stage>();
-        //clear = stage.getResult();
+        stage = FindObjectOfType<StageManager>();
+        clear = stage.getResult();
         if(clear == true)
         {
             clearScreen.SetActive(true);

@@ -52,11 +52,11 @@ public class Controller : MonoBehaviour {
     private float rotationSpeed = 10000.0f;
 
     //Buttonコンポーネント取得（Pause中か確認するために）
-    private Stage stage;
+    private StageManager stage;
 
     void Start () {
-        //Stageコンポーネント取得
-        stage = FindObjectOfType<Stage>();
+        //StageManagerコンポーネント取得
+        stage = FindObjectOfType<StageManager>();
         //攻撃判定オフ
         pa.SetActive(false);
 	}

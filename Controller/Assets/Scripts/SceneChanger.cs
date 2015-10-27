@@ -23,7 +23,7 @@ public class SceneChanger : MonoBehaviour {
     public void stage01()
     {
         stageName = "Stage1";
-        Application.LoadLevel("Loading");
+        Application.LoadLevel("Stage1");
 
     }
 
@@ -47,6 +47,12 @@ public class SceneChanger : MonoBehaviour {
     public string toLoading()
     {
         return stageName;
+    }
+
+    //リザルトへ
+    public void toResult()
+    {
+        Application.LoadLevel("Result");
     }
 
 }

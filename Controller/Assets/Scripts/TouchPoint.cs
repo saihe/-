@@ -19,7 +19,7 @@ public class TouchPoint : MonoBehaviour {
     private Vector2 slidePoint;
 
     //Stageコンポーネント
-    Stage stage;
+    StageManager stage;
 
     //タッチ制限値
     float minX;
@@ -46,7 +46,7 @@ public class TouchPoint : MonoBehaviour {
         //PanelのImageコンポーネント
         panelImage = panel.GetComponent<Image>();
         //Stageコンポーネント
-        stage = FindObjectOfType<Stage>();
+        stage = FindObjectOfType<StageManager>();
         //Controllerコンポーネント取得
         controller = FindObjectOfType<Controller>();
         //タッチパッド非表示

@@ -54,8 +54,14 @@ public class BMIManager : MonoBehaviour {
     //TFiP変換スピード調整用
     public int tSpeed = 1;
 
-    //
+    //bmiカウンター
     private float bmiCounter = 0;
+
+    //StageManatgerコンポーネント
+    StageManager stage;
+
+    //SceneChangerコンポーネント
+    SceneChanger scene;
 
     //他のスクリプトでbmi呼ぶ用
     public float getBMI()
@@ -74,6 +80,11 @@ public class BMIManager : MonoBehaviour {
         //Tゲージ(slider)を取得する
         Tguage = GameObject.Find("Tguage").GetComponent<Slider>();
 
+        //Stageコンポーネント取得
+        stage = FindObjectOfType<StageManager>();
+        print(stage);
+        scene = FindObjectOfType<SceneChanger>();
+
         //BMIguage初期化
         bmi = 200.0f;
 
@@ -87,13 +98,13 @@ public class BMIManager : MonoBehaviour {
         changeTguage();
 	}
 
-    //BMIゲージの色変更
+    //BMIゲージの色・値変更
     public void changeBMIguage()
     {
         //デバッグ用ゲージ上昇・200で0になる
-        /*
-        bmi -= 1.0f;
         
+        bmi -= 1.0f;
+        /*
         if (bmi > 200)
         {
             bmi = 0;
@@ -122,6 +133,13 @@ public class BMIManager : MonoBehaviour {
 
         //Valueにbmiをいれる
         BMIguage.value = bmi;
+
+        //BMIが0以下になったら
+        if(bmi <= 0)
+        {
+            stage.setResult(false);
+            scene.toResult();
+        }
     }
 
     //Tゲージ
@@ -150,7 +168,11 @@ public class BMIManager : MonoBehaviour {
             tLevel2.SetActive(true);
             tLevel3.SetActive(true);
         }
-        if( t < 34)
+        if(t < 99)
+        {
+            tLevel3.SetActive(false);
+        }
+        if ( t < 66)
         {
             tLevel2.SetActive(false);
             tLevel3.SetActive(false);
@@ -181,7 +203,7 @@ public class BMIManager : MonoBehaviour {
         if (t > 66)
         {
             bmiCounter = 0;
-            t = 33;
+            t -= 33;
             bmi = 200.0f;
         }
 
