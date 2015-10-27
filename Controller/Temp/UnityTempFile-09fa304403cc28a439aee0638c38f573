@@ -75,10 +75,11 @@
 Assets/Scripts/BMIManager.cs
 Assets/Scripts/Button.cs
 Assets/Scripts/Controller.cs
+Assets/Scripts/EnemyA.cs
 Assets/Scripts/Option.cs
 Assets/Scripts/Result.cs
 Assets/Scripts/SceneChanger.cs
-Assets/Scripts/Stage.cs
+Assets/Scripts/StageManager.cs
 Assets/Scripts/TouchPoint.cs
 Assets/Scripts/touchTest.cs
 -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Runtime.Serialization.dll"

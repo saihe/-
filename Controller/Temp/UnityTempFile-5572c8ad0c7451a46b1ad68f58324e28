@@ -75,6 +75,7 @@
 Assets/Scripts/BMIManager.cs
 Assets/Scripts/Button.cs
 Assets/Scripts/Controller.cs
+Assets/Scripts/EnemyA.cs
 Assets/Scripts/Option.cs
 Assets/Scripts/Result.cs
 Assets/Scripts/SceneChanger.cs
