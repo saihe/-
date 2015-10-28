@@ -62,10 +62,11 @@ public class Controller : MonoBehaviour {
 	}
 	
 	void Update () {
+        move();/*
         if (stage.getPause() == false)
         {
             move();
-        }
+        }*/
     }
 
     //コントローラー状態

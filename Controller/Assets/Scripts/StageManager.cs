@@ -80,10 +80,10 @@ public class StageManager : MonoBehaviour {
     {
         parseTime += Time.deltaTime;
         nowTime = outTime - parseTime;
-        if (nowTime <= 0)
+        /*if (nowTime <= 0)
         {
             clear = false;
-        }
+        }*/
         mathTime(nowTime);
         timer.GetComponent<Text>().text = "残タイム　" + minuts + ":" + seconds;
     }
@@ -131,11 +131,11 @@ public class StageManager : MonoBehaviour {
     }
 
     //リザルト画面に遷移する前にステージシーンでテロップを出す
-    IEnumerator telop()
+    /*IEnumerator telop()
     {
         resultTelop.SetActiveRecursively(true);
         yield return new WaitForSeconds(3.0f);
         resultTelop.SetActive(false);
-        yield break;
-    }
+        //yield break;
+    }*/
 }
