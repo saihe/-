@@ -71,10 +71,10 @@ public class Controller : MonoBehaviour {
     private AudioSource audio;
 
     //波動
-    public GameObject hado;
+    private GameObject hado;
 
     //BMIManager
-    public BMIManager bmiManager;
+    private BMIManager bmiManager;
 
     //攻撃判定オンオフ用コライダー
     SphereCollider jab;
@@ -83,6 +83,9 @@ public class Controller : MonoBehaviour {
 
 
     void Start () {
+        //BMIManager
+        bmiManager = GameObject.Find("BMIManager").GetComponent<BMIManager>();
+
 		//攻撃判定オフ
 		button = FindObjectOfType<Buttons>();
 
@@ -93,6 +96,7 @@ public class Controller : MonoBehaviour {
         audio = GetComponent<AudioSource>();
 
         //波動非表示
+        hado = transform.GetChild(4).gameObject;
         hado.SetActive(false);
 
         //攻撃判定用
