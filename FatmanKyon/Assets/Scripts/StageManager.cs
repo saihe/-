@@ -133,19 +133,22 @@ public class StageManager : MonoBehaviour {
 	//タイマー書き換え
 	void setTimer()
 	{
-		if (nowTime >= 0)
-		{
-			parseTime += Time.deltaTime;
-			nowTime = outTime - parseTime;
-			if (nowTime <= 0)
-			{
-				setResult(false);
-				StartCoroutine(telop());
-			}
-			mathTime(nowTime);
-			timer.GetComponent<Text>().text = "残タイム　" + minuts + ":" + seconds;
-		}
-	}
+        if(state.getState() == GameState.Playing)
+        {
+            if (nowTime >= 0)
+            {
+                parseTime += Time.deltaTime;
+                nowTime = outTime - parseTime;
+                if (nowTime <= 0)
+                {
+                    setResult(false);
+                    StartCoroutine(telop());
+                }
+                mathTime(nowTime);
+                timer.GetComponent<Text>().text = "残タイム　" + minuts + ":" + seconds;
+            }
+        }
+    }
 	
 	//タイマー計算
 	void mathTime(float t)
@@ -226,17 +229,11 @@ public class StageManager : MonoBehaviour {
 	private GameObject objectPool;
 	private	IEnumerator enemyWave ()
 	{
-		//print (objectPool);
-		// Waveが存在しなければコルーチンを終了する		
-		//if (waves[2].activeSelf == true) {
-		//	print("WAVE終了");
-		//	yield break;
-	//	}
 		if (objTmp) {
 			objectPool = new GameObject("objectPool");
 			objectPool.transform.position = new Vector3(5, 2, 10);
 			foreach (GameObject n in waves) {
-				print(n);
+				//print(n);
 				GameObject childN = Instantiate (n, transform.position, Quaternion.identity) as GameObject;
 				childN.SetActive(false);
 				childN.transform.parent = objectPool.transform;
@@ -264,7 +261,7 @@ public class StageManager : MonoBehaviour {
                 // Waveの子要素のEnemyが全て削除されるまで待機する
 
                 //print(objectPool.transform.childCount);
-                print(currentWave);
+                //print(currentWave);
 
 			while (t > count) {
 				yield return new WaitForEndOfFrame ();

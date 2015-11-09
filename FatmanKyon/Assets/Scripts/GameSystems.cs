@@ -122,9 +122,12 @@ namespace GameSystems{
                 PlayerPrefs.GetInt(StageName.Stage2.ToString(), 0);
                 PlayerPrefs.GetInt(StageName.Stage3.ToString(), 0);
                 //保存した情報をコレクションに格納
-                clearedStages.Add(StageName.Stage1, PlayerPrefs.GetInt(StageName.Stage1.ToString(), 0));
+                clearedStages[StageName.Stage1] = PlayerPrefs.GetInt(StageName.Stage1.ToString(), 0);
+                clearedStages[StageName.Stage2] = PlayerPrefs.GetInt(StageName.Stage1.ToString(), 0);
+                clearedStages[StageName.Stage3] = PlayerPrefs.GetInt(StageName.Stage1.ToString(), 0);
+                /*clearedStages.Add(StageName.Stage1, PlayerPrefs.GetInt(StageName.Stage1.ToString(), 0));
                 clearedStages.Add(StageName.Stage2, PlayerPrefs.GetInt(StageName.Stage2.ToString(), 0));
-                clearedStages.Add(StageName.Stage3, PlayerPrefs.GetInt(StageName.Stage3.ToString(), 0));
+                clearedStages.Add(StageName.Stage3, PlayerPrefs.GetInt(StageName.Stage3.ToString(), 0));*/
                 Debug.Log("端末から取得した");
             }
             else

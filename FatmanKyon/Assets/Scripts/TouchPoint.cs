@@ -37,7 +37,7 @@ public class TouchPoint : MonoBehaviour {
     Color panelColor;
 
     //Buttonコンポーネント
-    Button button;
+    Buttons button;
 
     State state = new State();
 
@@ -46,7 +46,7 @@ public class TouchPoint : MonoBehaviour {
         panelImage = panel.GetComponent<Image>();
         //Controllerコンポーネント取得
         controller = FindObjectOfType<Controller>();
-        button = FindObjectOfType<Button>();
+        button = FindObjectOfType<Buttons>();
         
         //タッチパッド非表示
         touchPad.SetActive(false);

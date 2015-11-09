@@ -52,7 +52,7 @@ public class Controller : MonoBehaviour {
 	private float rotationSpeed = 10000.0f;
 	
     //Buttonコンポーネント
-	Button button;
+	Buttons button;
 
     //アニメーション
     Animator anim;
@@ -80,9 +80,11 @@ public class Controller : MonoBehaviour {
     SphereCollider jab;
     SphereCollider smash;
 
+
+
     void Start () {
 		//攻撃判定オフ
-		button = FindObjectOfType<Button>();
+		button = FindObjectOfType<Buttons>();
 
         //モーションをいじるため
         anim = GetComponent<Animator>();
@@ -308,16 +310,6 @@ public class Controller : MonoBehaviour {
             c.gameObject.SetActive(false);
             //Destroy(c.gameObject);
         }
-
-        //アイテム取得したらItem.cs
-        /*if(c.gameObject.tag == "Item")
-        {
-            bmiManager.BMIUP(int.Parse(c.gameObject.name));
-            Destroy(c.gameObject);
-            Debug.Log("アイテムとりましたぁぁぁぁん");
-
-        }*/
-
     }
 
     //離れたらコレクションから削除
@@ -375,59 +367,6 @@ public class Controller : MonoBehaviour {
         yield return new WaitForSeconds(0.2f);
         hado.SetActive(false);
         yield break;
-    }
-
-    //スキル
-    //回転
-    public GameObject skillRound;
-    public GameObject skillHundred;
-    public GameObject skillHundredRound;
-    public IEnumerator SkillRound()
-    {
-        int i = 0;
-        while (true)
-        {
-            i++;
-            //print("Skill");
-            skillRound.SetActive(true);
-            skillRound.transform.RotateAround(transform.position, new Vector3(0f, 10f), 30f);
-            yield return new WaitForFixedUpdate();
-            if (i >= 200)
-            {
-                print("i >= 50");
-                skillRound.SetActive(false);
-                StopCoroutine(SkillRound());
-                yield break;
-            }
-        }
-    }
-
-    //百烈拳
-    public IEnumerator SkillHundred()
-    {
-        int i = 0;
-        while (true)
-        {
-            i++;
-            if(anim.GetBool("Skill") == false)
-            {
-                anim.SetBool("Skill", true);
-                anim.SetTrigger("OnSkill");
-            }
-            skillHundred.SetActive(true);
-            transform.Translate(transform.forward * 2 * Time.deltaTime);
-            skillHundredRound.transform.RotateAround(transform.position, new Vector3(0f, 10f), 90f);
-            yield return new WaitForFixedUpdate();
-            if (i >= 200)
-            {
-                print("i >= 50");
-                anim.SetBool("Skill", false);
-                anim.SetTrigger("OffSkill");
-                skillHundred.SetActive(false);
-                StopCoroutine(SkillHundred());
-                yield break;
-            }
-        }
     }
 
 }

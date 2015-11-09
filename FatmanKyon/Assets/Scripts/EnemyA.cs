@@ -157,7 +157,6 @@ public class EnemyA : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
             anim.SetTrigger("Attack");
             hado.SetActive(true);
-            print("hoge");
             if (nowState != "attack")
             {
                 hado.SetActive(false);
@@ -220,7 +219,7 @@ public class EnemyA : MonoBehaviour
     //アイテムドロップ
     void itemPop()
     {
-        Vector3 itemPos = new Vector3(transform.position.x, 1f, transform.position.z);
+        Vector3 itemPos = new Vector3(transform.position.x, -2f, transform.position.z);
         Instantiate(item[itemTmp], itemPos, Quaternion.identity).name = itemTmp.ToString();
     }
 
