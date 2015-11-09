@@ -4,19 +4,12 @@ using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
-
-    public EnemyA enemy;
-
     private BMIManager bmiManager;
-
-    private GameObject parentEnemy;
 
     // Use this for initialization
     void Start()
     {
         bmiManager = GameObject.Find("BMIManager").GetComponent<BMIManager>();
-
-        parentEnemy = GameObject.Find("Enemy");
     }
 
 
@@ -37,7 +30,6 @@ public class Item : MonoBehaviour
         {
             bmiManager.BMIUP(int.Parse(name));
             Destroy(gameObject);
-            Debug.Log("アイテムとりましたぁぁぁぁん");
         }
     }
 }

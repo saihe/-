@@ -84,6 +84,7 @@ ModelImporter:
     7400022: Winn
     7400024: sibo_1|Hokuto
     7400026: Lamp|dash
+    7400028: Stay
     9500000: //RootNode
     13700000: sibo_1
   materials:
@@ -116,7 +117,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -206,7 +207,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -294,9 +295,9 @@ ModelImporter:
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
-      cycleOffset: 0
+      cycleOffset: 10
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -386,7 +387,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -566,7 +567,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -656,7 +657,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -926,7 +927,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1016,7 +1017,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1101,6 +1102,96 @@ ModelImporter:
       takeName: armor|Winn
       firstFrame: 0
       lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: armor
+        weight: 1
+      - path: armor/Master
+        weight: 1
+      - path: armor/Master/Hip_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L/Foot_L_end
+        weight: 1
+      - path: armor/Master/Hip_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R/Foot_R_end
+        weight: 1
+      - path: armor/Master/Spine1
+        weight: 1
+      - path: armor/Master/Spine1/Spine2
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004/Bone.004_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L/Hand_L_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R/Hand_R_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: sibo_1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Stay
+      takeName: armor|jab2
+      firstFrame: 0
+      lastFrame: .600000024
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
