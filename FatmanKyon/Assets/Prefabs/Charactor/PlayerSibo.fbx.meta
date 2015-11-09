@@ -1,0 +1,1232 @@
+fileFormatVersion: 2
+guid: 0888b2997f6c78346bb944ecb562d131
+timeCreated: 1447033574
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: armor
+    100002: Bone.004
+    100004: Bone.004_end
+    100006: Camera
+    100008: Foot_L
+    100010: Foot_L_end
+    100012: Foot_R
+    100014: Foot_R_end
+    100016: Hand_L
+    100018: Hand_L_end
+    100020: Hand_R
+    100022: Hand_R_end
+    100024: Hip_L
+    100026: Hip_R
+    100028: Lamp
+    100030: LowerArm_L
+    100032: LowerArm_R
+    100034: LowerLeg_L
+    100036: LowerLeg_R
+    100038: Master
+    100040: Neck
+    100042: //RootNode
+    100044: Shoulder_L
+    100046: Shoulder_R
+    100048: sibo_1
+    100050: Spine1
+    100052: Spine2
+    100054: Spine3
+    100056: UpeerArm_R
+    100058: UperArm_L
+    100060: UpperLeg_L
+    100062: UpperLeg_R
+    400000: armor
+    400002: Bone.004
+    400004: Bone.004_end
+    400006: Camera
+    400008: Foot_L
+    400010: Foot_L_end
+    400012: Foot_R
+    400014: Foot_R_end
+    400016: Hand_L
+    400018: Hand_L_end
+    400020: Hand_R
+    400022: Hand_R_end
+    400024: Hip_L
+    400026: Hip_R
+    400028: Lamp
+    400030: LowerArm_L
+    400032: LowerArm_R
+    400034: LowerLeg_L
+    400036: LowerLeg_R
+    400038: Master
+    400040: Neck
+    400042: //RootNode
+    400044: Shoulder_L
+    400046: Shoulder_R
+    400048: sibo_1
+    400050: Spine1
+    400052: Spine2
+    400054: Spine3
+    400056: UpeerArm_R
+    400058: UperArm_L
+    400060: UpperLeg_L
+    400062: UpperLeg_R
+    4300000: sibo_1
+    7400000: charge
+    7400002: dash
+    7400004: skill2
+    7400006: Jab
+    7400008: jab2
+    7400010: skill3
+    7400012: skill1
+    7400014: smash
+    7400016: stay
+    7400018: Walk(loop)
+    7400020: warp
+    7400022: Winn
+    7400024: sibo_1|Hokuto
+    7400026: Lamp|dash
+    9500000: //RootNode
+    13700000: sibo_1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: charge
+      takeName: armor|charge
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: armor
+        weight: 1
+      - path: armor/Master
+        weight: 1
+      - path: armor/Master/Hip_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L/Foot_L_end
+        weight: 1
+      - path: armor/Master/Hip_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R/Foot_R_end
+        weight: 1
+      - path: armor/Master/Spine1
+        weight: 1
+      - path: armor/Master/Spine1/Spine2
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004/Bone.004_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L/Hand_L_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R/Hand_R_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: sibo_1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: dash
+      takeName: armor|dash
+      firstFrame: 0
+      lastFrame: 9
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: armor
+        weight: 1
+      - path: armor/Master
+        weight: 1
+      - path: armor/Master/Hip_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L/Foot_L_end
+        weight: 1
+      - path: armor/Master/Hip_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R/Foot_R_end
+        weight: 1
+      - path: armor/Master/Spine1
+        weight: 1
+      - path: armor/Master/Spine1/Spine2
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004/Bone.004_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L/Hand_L_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R/Hand_R_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: sibo_1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: skill2
+      takeName: armor|Hokuto
+      firstFrame: 0
+      lastFrame: 6
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: armor
+        weight: 1
+      - path: armor/Master
+        weight: 1
+      - path: armor/Master/Hip_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L/Foot_L_end
+        weight: 1
+      - path: armor/Master/Hip_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R/Foot_R_end
+        weight: 1
+      - path: armor/Master/Spine1
+        weight: 1
+      - path: armor/Master/Spine1/Spine2
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004/Bone.004_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L/Hand_L_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R/Hand_R_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: sibo_1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Jab
+      takeName: armor|Jab
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: armor
+        weight: 1
+      - path: armor/Master
+        weight: 1
+      - path: armor/Master/Hip_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L/Foot_L_end
+        weight: 1
+      - path: armor/Master/Hip_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R/Foot_R_end
+        weight: 1
+      - path: armor/Master/Spine1
+        weight: 1
+      - path: armor/Master/Spine1/Spine2
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004/Bone.004_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L/Hand_L_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R/Hand_R_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: sibo_1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: jab2
+      takeName: armor|jab2
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: armor
+        weight: 1
+      - path: armor/Master
+        weight: 1
+      - path: armor/Master/Hip_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L/Foot_L_end
+        weight: 1
+      - path: armor/Master/Hip_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R/Foot_R_end
+        weight: 1
+      - path: armor/Master/Spine1
+        weight: 1
+      - path: armor/Master/Spine1/Spine2
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004/Bone.004_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L/Hand_L_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R/Hand_R_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: sibo_1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: skill3
+      takeName: armor|Skil2
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: armor
+        weight: 1
+      - path: armor/Master
+        weight: 1
+      - path: armor/Master/Hip_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L/Foot_L_end
+        weight: 1
+      - path: armor/Master/Hip_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R/Foot_R_end
+        weight: 1
+      - path: armor/Master/Spine1
+        weight: 1
+      - path: armor/Master/Spine1/Spine2
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004/Bone.004_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L/Hand_L_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R/Hand_R_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: sibo_1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: skill1
+      takeName: armor|Skil3
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: armor
+        weight: 1
+      - path: armor/Master
+        weight: 1
+      - path: armor/Master/Hip_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L/Foot_L_end
+        weight: 1
+      - path: armor/Master/Hip_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R/Foot_R_end
+        weight: 1
+      - path: armor/Master/Spine1
+        weight: 1
+      - path: armor/Master/Spine1/Spine2
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004/Bone.004_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L/Hand_L_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R/Hand_R_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: sibo_1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: smash
+      takeName: armor|smash
+      firstFrame: 0
+      lastFrame: 5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: armor
+        weight: 1
+      - path: armor/Master
+        weight: 1
+      - path: armor/Master/Hip_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L/Foot_L_end
+        weight: 1
+      - path: armor/Master/Hip_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R/Foot_R_end
+        weight: 1
+      - path: armor/Master/Spine1
+        weight: 1
+      - path: armor/Master/Spine1/Spine2
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004/Bone.004_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L/Hand_L_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R/Hand_R_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: sibo_1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: stay
+      takeName: armor|stay
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: armor
+        weight: 1
+      - path: armor/Master
+        weight: 1
+      - path: armor/Master/Hip_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L/Foot_L_end
+        weight: 1
+      - path: armor/Master/Hip_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R/Foot_R_end
+        weight: 1
+      - path: armor/Master/Spine1
+        weight: 1
+      - path: armor/Master/Spine1/Spine2
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004/Bone.004_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L/Hand_L_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R/Hand_R_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: sibo_1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Walk(loop)
+      takeName: armor|Walk(loop)
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: armor
+        weight: 1
+      - path: armor/Master
+        weight: 1
+      - path: armor/Master/Hip_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L/Foot_L_end
+        weight: 1
+      - path: armor/Master/Hip_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R/Foot_R_end
+        weight: 1
+      - path: armor/Master/Spine1
+        weight: 1
+      - path: armor/Master/Spine1/Spine2
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004/Bone.004_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L/Hand_L_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R/Hand_R_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: sibo_1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: warp
+      takeName: armor|warp
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: armor
+        weight: 1
+      - path: armor/Master
+        weight: 1
+      - path: armor/Master/Hip_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L/Foot_L_end
+        weight: 1
+      - path: armor/Master/Hip_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R/Foot_R_end
+        weight: 1
+      - path: armor/Master/Spine1
+        weight: 1
+      - path: armor/Master/Spine1/Spine2
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004/Bone.004_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L/Hand_L_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R/Hand_R_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: sibo_1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Winn
+      takeName: armor|Winn
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: armor
+        weight: 1
+      - path: armor/Master
+        weight: 1
+      - path: armor/Master/Hip_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: armor/Master/Hip_L/UpperLeg_L/LowerLeg_L/Foot_L/Foot_L_end
+        weight: 1
+      - path: armor/Master/Hip_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: armor/Master/Hip_R/UpperLeg_R/LowerLeg_R/Foot_R/Foot_R_end
+        weight: 1
+      - path: armor/Master/Spine1
+        weight: 1
+      - path: armor/Master/Spine1/Spine2
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Neck/Bone.004/Bone.004_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_L/UperArm_L/LowerArm_L/Hand_L/Hand_L_end
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R
+        weight: 1
+      - path: armor/Master/Spine1/Spine2/Spine3/Shoulder_R/UpeerArm_R/LowerArm_R/Hand_R/Hand_R_end
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Lamp
+        weight: 1
+      - path: sibo_1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,11 @@
+Base path: C:/Program Files/Unity/Editor/Data
+<<<<<<< HEAD:Ver(Kyon)/Library/shadercompiler-32bit-3.log
+Pipe name: \\.\pipe\UnityShaderCompiler-32bit-3-9244
+=======
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-2-916
+>>>>>>> 54f42d68d92c7d89f446eb4788d67773d1528a4a:FatmanKyon/Library/shadercompiler-64bit-2.log
+Cmd: getPlatforms
+Unhandled exception: Readfile from pipe failed. GLE=パイプは終了しました。
+
+
+Quitting shader compiler process
