@@ -107,6 +107,7 @@ public class EnemyA : MonoBehaviour {
         }
     }
 
+    //やられたらカウント。
     void OnDisable()
     {
         sm.Counter(1);

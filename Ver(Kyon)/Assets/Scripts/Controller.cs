@@ -348,26 +348,50 @@ public class Controller : MonoBehaviour {
     }
 
     //スキル
-    public GameObject skill;
-    public IEnumerator Skill()
+    //回転
+    public GameObject skillRound;
+    public GameObject skillHundred;
+    public GameObject skillHundredRound;
+    public IEnumerator SkillRound()
     {
         int i = 0;
         while (true)
         {
             i++;
             //print("Skill");
-            skill.SetActive(true);
-            skill.transform.RotateAround(transform.position, new Vector3(0f, 10f), 30f);
+            skillRound.SetActive(true);
+            skillRound.transform.RotateAround(transform.position, new Vector3(0f, 10f), 30f);
             yield return new WaitForFixedUpdate();
             if (i >= 200)
             {
                 print("i >= 50");
-                skill.SetActive(false);
-                StopCoroutine(Skill());
+                skillRound.SetActive(false);
+                StopCoroutine(SkillRound());
                 yield break;
             }
         }
+    }
 
+    //百裂拳
+    public IEnumerator SkillHundred()
+    {
+        int i = 0;
+        while (true)
+        {
+            i++;
+            //print("Skill");
+            skillHundred.SetActive(true);
+            transform.Translate(transform.forward * 2 * Time.deltaTime);
+            skillHundredRound.transform.RotateAround(transform.position, new Vector3(0f, 10f), 90f);
+            yield return new WaitForFixedUpdate();
+            if (i >= 200)
+            {
+                print("i >= 50");
+                skillHundred.SetActive(false);
+                StopCoroutine(SkillHundred());
+                yield break;
+            }
+        }
     }
 
 }

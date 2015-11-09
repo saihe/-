@@ -265,7 +265,7 @@ public class BMIManager : MonoBehaviour {
             audio.PlayOneShot(audioSorce[2]);
             t -= 33;
             con.incBMI(50f);
-            StartCoroutine(con.Skill());
+            StartCoroutine(con.SkillHundred());
         }
     }
 
