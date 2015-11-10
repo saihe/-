@@ -134,7 +134,7 @@ public class BMIManager : MonoBehaviour {
         tLevel3 = GameObject.Find("TLevel3");
 
         //Stageコンポーネント取得
-        stage = FindObjectOfType<StageManager>();
+        stage = GameObject.Find("StageManager").GetComponent<StageManager>();
         //print(stage);
 
         //BMIguage初期化
@@ -232,7 +232,7 @@ public class BMIManager : MonoBehaviour {
         if(bmi <= 0)
         {
             stage.setResult(false);
-            sc.toResult();
+            StartCoroutine(stage.telop());
         }
     }
 

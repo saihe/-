@@ -20,6 +20,37 @@ namespace GameSystems{
         Stage3
     };
 
+
+    //デバッグ用
+    public class DebugSystem: MonoBehaviour
+    {
+        public void OnGUI()
+        {
+            if (Input.GetKeyDown("i"))
+            {
+                print("S: NowState/ C: CurrentStage/ D: ClearData");
+            }
+            if (Input.GetKeyDown("s"))
+            {
+                State state = new State();
+                print(state.getState());
+            }
+            if (Input.GetKeyDown("c"))
+            {
+                ScenChanger c = new ScenChanger();
+                print(c.getStageName());
+            }
+            if (Input.GetKeyDown("d"))
+            {
+                ClearedStage d = new ClearedStage();
+                foreach(var val in d.getClearedStages())
+                {
+                    print(val);
+                }
+            }
+        }
+    }
+
     //ゲームステート
     class State
     {
@@ -140,7 +171,6 @@ namespace GameSystems{
                 /*clearedStages.Add(StageName.Stage1, PlayerPrefs.GetInt(StageName.Stage1.ToString(), 0));
                 clearedStages.Add(StageName.Stage2, PlayerPrefs.GetInt(StageName.Stage2.ToString(), 0));
                 clearedStages.Add(StageName.Stage3, PlayerPrefs.GetInt(StageName.Stage3.ToString(), 0));*/
-                Debug.Log("端末から取得した");
             }
             else
             {

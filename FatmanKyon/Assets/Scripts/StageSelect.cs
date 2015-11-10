@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using GameSystems;
 using System.Linq;
+using System;
 
 public class StageSelect : MonoBehaviour {
     
@@ -18,11 +19,60 @@ public class StageSelect : MonoBehaviour {
     //オーディオ
     AudioSource audio;
 
+    //Stageボタン
+    private GameObject stage2;
+    private GameObject stage3;
+    DebugSystem ds = new DebugSystem();
+
     void Start()
     {
         audio = GetComponent<AudioSource>();
         audio.volume = 0.5f;
         cs.getCleared();
+        try
+        {
+            stageButton();
+        }
+        catch (Exception e)
+        {
+            print(e);
+        }
+    }
+
+    void stageButton()
+    {
+        stage2 = GameObject.Find("Stage2");
+        stage3 = GameObject.Find("Stage3");
+        stage2.SetActive(false);
+        stage3.SetActive(false);
+        if (cs.getClearedStages()[StageName.Stage1] == 1)
+        {
+            try
+            {
+                stage2.SetActive(true);
+            }
+            catch (Exception e)
+            {
+                print(e);
+            }
+        }
+        if (cs.getClearedStages()[StageName.Stage1] == 1 && cs.getClearedStages()[StageName.Stage2] == 1)
+        {
+            try
+            {
+                stage3.SetActive(true);
+            }
+            catch (Exception e)
+            {
+                print(e);
+            }
+        }
+
+    }
+
+    void OnGUI()
+    {
+        ds.OnGUI();
     }
 
 
@@ -122,6 +172,7 @@ public class StageSelect : MonoBehaviour {
             print(val);
         }
         print("初期化");
+        stageButton();
     }
 
 
