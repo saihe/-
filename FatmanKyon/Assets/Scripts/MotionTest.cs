@@ -1,13 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class MotionTest : MonoBehaviour {
 
     Animator anim;
+    private Text text;
 
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animator>();
+        text = GameObject.Find("MainCanvas/Text").GetComponent<Text>();
+        
 	}
 	
     int i = 0;
@@ -15,17 +19,38 @@ public class MotionTest : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown("l"))
         {
-            anim.SetLayerWeight(3, 1);
+            for(int i = 0; i < 5; i++)
+            {
+                anim.SetLayerWeight(i, 0);
+            }
+            anim.SetLayerWeight(4, 1);
             print("Layer is List");
+            text.text = "Now Layer: List";
         }
-        if (Input.GetKeyDown("s"))
+        if (Input.GetKeyDown("p"))
         {
-            anim.SetLayerWeight(3, 0);
+            for (int i = 0; i < 5; i++)
+            {
+                anim.SetLayerWeight(i, 0);
+            }
+            anim.SetLayerWeight(0, 1);
             print("Layer is Shibokun");
+            text.text = "Now Layer: Shibokun";
+        }
+        if (Input.GetKeyDown("b"))
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                anim.SetLayerWeight(i, 0);
+            }
+            anim.SetLayerWeight(2, 1);
+            print("Layer is Boss");
+            text.text = "Now Layer: Boss";
         }
 
-        if(anim.GetLayerWeight(3) == 1)
+        if (anim.GetLayerWeight(4) == 1)
         {
+            text.text = "Now Layer: List\nEnter: Next\n1: Stay\n2: Attack\n3: Skill";
             if (Input.GetKeyDown("enter"))
             {
                 anim.SetTrigger("Next");
@@ -47,7 +72,17 @@ public class MotionTest : MonoBehaviour {
         }
         else
         {
-            if (Input.GetKeyDown("z"))
+            if (anim.GetLayerWeight(0) == 1)
+            {
+                text.text = "Now Layer: Shibokun\nA: Attack\nM: Move\nW: Flick\nT: TFiP\n1: SkillSonic\n2: SkillRush\n3:  SkillHavoc\nEnter: OffSkill";
+            }
+            else if (anim.GetLayerWeight(2) == 1)
+            {
+                text.text = "Now Layer: Boss\nM: Move\nA: Attack\nS: Skill";
+            }
+
+
+            if (Input.GetKeyDown("a"))
             {
                 anim.SetTrigger("Attack");
             }
@@ -84,6 +119,10 @@ public class MotionTest : MonoBehaviour {
             if (Input.GetKeyDown("enter"))
             {
                 anim.SetTrigger("OffSkill");
+            }
+            if (Input.GetKeyDown("s"))
+            {
+                anim.SetTrigger("Skill");
             }
         }
 
