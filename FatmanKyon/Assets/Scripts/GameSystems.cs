@@ -91,7 +91,11 @@ namespace GameSystems{
         //初期化
         public void clearData()
         {
+            //端末にデフォルトの値を保存
             PlayerPrefs.DeleteAll();
+            PlayerPrefs.SetInt(StageName.Stage1.ToString(), 0);
+            PlayerPrefs.SetInt(StageName.Stage2.ToString(), 0);
+            PlayerPrefs.SetInt(StageName.Stage3.ToString(), 0);
         }
 
         public void defaultData()

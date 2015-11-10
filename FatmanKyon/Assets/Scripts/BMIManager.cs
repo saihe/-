@@ -243,11 +243,16 @@ public class BMIManager : MonoBehaviour {
         //レベル2
         if(t > 65 && t < 98)
         {
+            //表示
             tLevel2.SetActive(true);
             tLevel3.SetActive(false);
+            //更生力
             con.setJabAtk(2f);
             con.setSmashAtk(6f);
+            //オーラ
             tEffect.emissionRate = 20f;
+            tEffect.startSize = 3f;
+            //波動
             hado.startSize = 2f;
             hadoc.radius = 0.4f;
         }
@@ -259,6 +264,7 @@ public class BMIManager : MonoBehaviour {
             tLevel2.SetActive(true);
             tLevel3.SetActive(true);
             tEffect.emissionRate = 50f;
+            tEffect.startSize = 10f;
             hado.startSize = 3f;
             hadoc.radius = 0.5f;
         }
@@ -270,6 +276,7 @@ public class BMIManager : MonoBehaviour {
             tLevel2.SetActive(false);
             tLevel3.SetActive(false);
             tEffect.emissionRate = 5f;
+            tEffect.startSize = 2f;
             hado.startSize = 1f;
             hadoc.radius = 0.3f;
         }

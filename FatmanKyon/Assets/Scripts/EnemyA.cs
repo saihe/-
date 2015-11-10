@@ -96,6 +96,7 @@ public class EnemyA : MonoBehaviour
 
         //カメラ
         camera = GameObject.Find("Camera");
+        print(camera);
 
         //悪意バー
         bar = transform.GetChild(5).gameObject;
