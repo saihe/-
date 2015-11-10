@@ -222,7 +222,11 @@ public class StageManager : MonoBehaviour {
 	{
 		if (objTmp) {
 			objectPool = new GameObject("objectPool");
-			objectPool.transform.position = new Vector3(5, 2, 10);
+            objectPool.AddComponent<RectTransform>();
+            objectPool.AddComponent<Canvas>().renderMode = RenderMode.WorldSpace;
+            objectPool.AddComponent<CanvasScaler>().uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            objectPool.AddComponent<GraphicRaycaster>();
+            objectPool.transform.position = new Vector3(5, 2, 10);
 			foreach (GameObject n in waves) {
 				GameObject childN = Instantiate (n, transform.position, Quaternion.identity) as GameObject;
 				childN.SetActive(false);

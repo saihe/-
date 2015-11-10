@@ -62,9 +62,7 @@ public class TouchPoint : MonoBehaviour {
     void Update()
     {
         //フリックの状態
-        
-        //print("TouchPointFlick: " + controller.getFlick());
-        if (controller.getFlick() == true)
+         if (controller.getFlick() == true)
         {
             print("Flick!");
         }

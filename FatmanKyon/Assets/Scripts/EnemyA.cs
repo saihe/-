@@ -2,6 +2,7 @@
 using System.Collections;
 using GameSystems;
 using System;
+using UnityEngine.UI;
 
 public class EnemyA : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class EnemyA : MonoBehaviour
     private string nowState;
 
     //プレイヤーとの距離
-    private float limitDistanse = 5;
+    private float limitDistanse = 3;
     private float distance;
 
     StageManager sm;
@@ -49,8 +50,17 @@ public class EnemyA : MonoBehaviour
     private float jabAtk;
     private float smashAtk;
     private bool attackOk;
-
+    
+    //悪意
     public float evilPoint = 25f;
+
+    //カメラオブジェクト
+    GameObject camera;
+
+    //悪意バー
+    GameObject bar;
+    Slider slider;
+
 
     void Start()
     {
@@ -71,7 +81,7 @@ public class EnemyA : MonoBehaviour
         }
 
         //ステージマネージャーコンポーネント
-        sm = FindObjectOfType<StageManager>();
+        sm = GameObject.Find("StageManager").GetComponent<StageManager>();
 
         //音を鳴らすコンポーネント
         audio = GetComponent<AudioSource>();
@@ -84,10 +94,22 @@ public class EnemyA : MonoBehaviour
         //アニメーターレイヤー指定
         anim.SetLayerWeight(1, 1f);
 
+        //カメラ
+        camera = GameObject.Find("Camera");
+
+        //悪意バー
+        bar = transform.GetChild(5).gameObject;
+        slider = bar.GetComponent<Slider>();
+        slider.maxValue = evilPoint;
+
     }
 
     void Update()
     {
+        //悪意バーがカメラを向く
+        bar.transform.LookAt(camera.transform);
+        slider.value = evilPoint;
+
         //プレーヤーの位置
         playerPos = player.transform.position;
 
@@ -144,7 +166,13 @@ public class EnemyA : MonoBehaviour
     //やられたらカウント。
     void OnDisable()
     {
-        sm.Counter(1);
+        try
+        {
+            sm.Counter(1);
+        }catch(Exception e)
+        {
+            print(e);
+        }
     }
 
     //徘徊モード

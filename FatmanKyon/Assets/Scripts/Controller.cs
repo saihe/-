@@ -81,6 +81,9 @@ public class Controller : MonoBehaviour {
     SphereCollider jab;
     SphereCollider smash;
 
+    //残像
+    TrailRenderer trail;
+
 
 
     void Start () {
@@ -109,6 +112,10 @@ public class Controller : MonoBehaviour {
         smash = GameObject.FindWithTag("Smash").GetComponent<SphereCollider>();
         jab.enabled = false;
         smash.enabled = false;
+
+        //残像
+        trail = transform.GetComponent<TrailRenderer>();
+        trail.enabled = false;
     }
 
     void Update () {
@@ -172,7 +179,6 @@ public class Controller : MonoBehaviour {
 				//フリックスピードが800以上あればフリック
 				if (flickSpeed > 800)
 				{
-					print("Flick stanby OK");
 					//フリックであると判定する
 					flickOk = true;
 				}
@@ -235,10 +241,9 @@ public class Controller : MonoBehaviour {
 				{
 					direction = new Vector3(-direction.x, 0, direction.z);
 				}
-				
 				transform.Translate(direction * 100, Space.World);
+                StartCoroutine(flick());
 				flickOk = false;
-				//print(flickOk);
 			}
 		}
 
@@ -271,6 +276,15 @@ public class Controller : MonoBehaviour {
                 //smash.enabled = false;
             }
         }
+    }
+
+    //フリックアクション
+    IEnumerator flick()
+    {
+        trail.enabled = true;
+        yield return new WaitForSeconds(0.5f);
+        trail.enabled = false;
+        yield break;
     }
 
     /*
