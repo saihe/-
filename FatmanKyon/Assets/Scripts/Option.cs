@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using GameSystems;
+using System;
 
 public class Option : MonoBehaviour {
 
@@ -11,10 +12,19 @@ public class Option : MonoBehaviour {
 
     ClearedStage cs = new ClearedStage();
 
+    StageSelect ss;
+
     void Start()
     {
         optionPanel = GameObject.Find("OptionPanel");
         optionPanel.SetActive(false);
+        try
+        {
+            ss = GameObject.Find("StageSelect").GetComponent<StageSelect>();
+        }catch(Exception e)
+        {
+            print(e);
+        }
     }
 
     //オプション
@@ -33,6 +43,7 @@ public class Option : MonoBehaviour {
         {
             print(val);
         }
+        ss.stageButton();
     }
 
     //オプション閉じる

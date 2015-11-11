@@ -7,11 +7,17 @@ public class MotionTest : MonoBehaviour {
     Animator anim;
     private Text text;
 
+    private GameObject shibo;
+    private GameObject enemy;
+    private GameObject boss;
+
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animator>();
         text = GameObject.Find("MainCanvas/Text").GetComponent<Text>();
-        
+        shibo = GameObject.Find("Create");
+        enemy = GameObject.Find("WakkiTest");
+        boss = GameObject.Find("BossTest");
 	}
 	
     int i = 0;
@@ -23,6 +29,9 @@ public class MotionTest : MonoBehaviour {
             {
                 anim.SetLayerWeight(i, 0);
             }
+            shibo.SetActive(true);
+            enemy.SetActive(false);
+            boss.SetActive(false);
             anim.SetLayerWeight(4, 1);
             print("Layer is List");
             text.text = "Now Layer: List";
@@ -33,6 +42,9 @@ public class MotionTest : MonoBehaviour {
             {
                 anim.SetLayerWeight(i, 0);
             }
+            shibo.SetActive(true);
+            enemy.SetActive(false);
+            boss.SetActive(false);
             anim.SetLayerWeight(0, 1);
             print("Layer is Shibokun");
             text.text = "Now Layer: Shibokun";
@@ -43,8 +55,24 @@ public class MotionTest : MonoBehaviour {
             {
                 anim.SetLayerWeight(i, 0);
             }
+            boss.SetActive(true);
+            shibo.SetActive(false);
+            enemy.SetActive(false);
             anim.SetLayerWeight(2, 1);
             print("Layer is Boss");
+            text.text = "Now Layer: Boss";
+        }
+        if (Input.GetKeyDown("e"))
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                anim.SetLayerWeight(i, 0);
+            }
+            enemy.SetActive(true);
+            shibo.SetActive(false);
+            boss.SetActive(false);
+            anim.SetLayerWeight(1, 1);
+            print("Layer is Enemy");
             text.text = "Now Layer: Boss";
         }
 
@@ -79,6 +107,10 @@ public class MotionTest : MonoBehaviour {
             else if (anim.GetLayerWeight(2) == 1)
             {
                 text.text = "Now Layer: Boss\nM: Move\nA: Attack\nS: Skill";
+            }
+            else if (anim.GetLayerWeight(1) == 1)
+            {
+                text.text = "Now Layer:Enemy\nM: Move\nA: Attack";
             }
 
 
