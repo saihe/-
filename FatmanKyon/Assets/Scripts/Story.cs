@@ -52,12 +52,14 @@ public class Story : MonoBehaviour {
     //上部ストーリー
     IEnumerator storyWriter(string str)
     {
+        yield return new WaitForSeconds(4.0f);
         int len = 0;
         StringBuilder sb = new StringBuilder();
         Text text = epilogue.GetComponent<Text>();
         yield return null;
         while(len < str.Length)
         {
+            epilogue.transform.Translate(epilogue.transform.up * Time.deltaTime * speed);
             sb.Append(str.Substring(len, 1));
             text.text = sb.ToString();
             len++;
@@ -69,17 +71,18 @@ public class Story : MonoBehaviour {
     //下部歌詞
     IEnumerator wordsWriter(string str)
     {
+        yield return new WaitForSeconds(20.0f);
         int len = 0;
         StringBuilder sb = new StringBuilder();
         Text text = words.GetComponent<Text>();
-        yield return null;
         while (len < str.Length)
         {
             sb.Append(str.Substring(len, 1));
             text.text = sb.ToString();
             len++;
-            yield return new WaitForSeconds(0.1f * speed);
+            yield return new WaitForSeconds(0.15f);
         }
+        yield return new WaitForSeconds(7.0f);
         StartCoroutine(thank());
         yield break;
     }

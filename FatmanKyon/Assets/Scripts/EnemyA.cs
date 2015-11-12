@@ -101,7 +101,6 @@ public class EnemyA : MonoBehaviour
         bar = transform.GetChild(5).gameObject;
         slider = bar.GetComponent<Slider>();
         slider.maxValue = evilPoint;
-
     }
 
     void Update()

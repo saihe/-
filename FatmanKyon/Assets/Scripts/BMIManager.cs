@@ -107,6 +107,9 @@ public class BMIManager : MonoBehaviour {
     //スキルカットイン
     GameObject[] cutIns = new GameObject[3];
 
+    //アイテムのカロリー
+    private float healPoint;
+
     //他のスクリプトでbmi呼ぶ用
     public float getBMI()
     {
@@ -139,7 +142,7 @@ public class BMIManager : MonoBehaviour {
 
         //BMIguage初期化
         bmi = 200.0f;
-        //bmi = 100f;
+        //bmi = 10f;
         //Tゲージ初期化
         t = 33;
         //t = 99;
@@ -473,7 +476,6 @@ public class BMIManager : MonoBehaviour {
         yield break;
     }
 
-    private float healPoint;
     //BMIゲージ回復
     public float BMIUP(int itemName)
     {

@@ -28,13 +28,12 @@ public class StageManager : MonoBehaviour {
 	
 	//シーンチェンジャー
 	ScenChanger sc = new ScenChanger();
+
+    //プレイヤー
+    private GameObject player;
+    private GameObject debu;
+    private int debuCnt = 0;
 	
-	//エネミー格納
-	private GameObject[] enemys = new GameObject[3];
-    int j = 1;
-	
-	//ボス格納
-	public GameObject boss;
 	
 	//リザルトテロップ
 	private GameObject resultTelop;
@@ -50,10 +49,11 @@ public class StageManager : MonoBehaviour {
 	private int k ;
 	
 	// Waveプレハブを格納する
-	public GameObject[] waves;
-	
-	// 現在のWave
-	private int currentWave =0;
+	private GameObject[] waves = new GameObject[4];
+    int j = 1;
+
+    // 現在のWave
+    private int currentWave = 0;
 
 	private bool objTmp = true;
 	
@@ -75,10 +75,15 @@ public class StageManager : MonoBehaviour {
 		//音
 		audio = GetComponent<AudioSource>();
 
+        //プレイヤー
+        player = GameObject.Find("PlayerSibo");
+        debu = (GameObject)Resources.Load("Debu");
+
         //Wavesをリソースから取得
-        for(int i = 0; i < enemys.Length; i++)
+        for(int i = 0; i < waves.Length; i++)
         {
-            enemys[i] = (GameObject)Resources.Load("Waves/Wave" + j);
+            waves[i] = (GameObject)Resources.Load("Waves/Wave" + j);
+            j++;
         }
         
         //EnemyWaveを呼び出す
@@ -90,34 +95,32 @@ public class StageManager : MonoBehaviour {
 	{
 		//タイマー
 		setTimer();
-	}
-	
-	public void Counter(int i)
+        if (Input.GetKeyDown("z"))
+        {
+            GameObject[] wave = new GameObject[4];
+            int i = 0;
+            foreach (var val in wave)
+            {
+                wave[i] = GameObject.Find("ObjectPool").transform.GetChild(i).gameObject;
+                if (wave[i].activeSelf == true)
+                {
+                    wave[i].SetActive(false);
+                }
+                i++;
+            }
+        }
+        if (Input.GetKeyDown("r"))
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
+    }
+
+    public void Counter(int i)
 	{
 		count += i;
 		print("Count: " + count);
 	} 
-	
-	void Sporner()
-	{
-		//Enemyが全部やられたら
-		if(count == 5)
-		{
-			audio.Stop();
-			//audio.clip = audioSorce[0];
-			//audio.PlayOneShot(audioSorce[0]);
-			Instantiate(boss, transform.position, transform.rotation);
-			Counter(1);
-		}        
-		//Enemy全部とBossがやられたら
-		if (count == 7)
-		{
-			setResult(true);
-			StartCoroutine(telop());
-		}
 		
-	}
-	
 	//タイマー書き換え
 	void setTimer()
 	{
@@ -193,19 +196,52 @@ public class StageManager : MonoBehaviour {
 			int i = 0;
 			while (i < 1)
 			{
-                print("GameOver");
 				audio.Stop();
 				audio.clip = audioSorce[2];
                 //audio.Play();
                 //audio.PlayOneShot(audioSorce[2]);
                 i++;
 			}
+            StartCoroutine(insDebu());
 			state.setState(GameState.GameOver);
 			resultTelop.GetComponent<Text>().text = "ゲームオーバー";
 		}
 	}
-	
-	public IEnumerator telop()
+
+    //BMI0でデブを出す
+    int rollTime = 0;
+    float lf = 0.1f;
+    ParticleSystem dp;
+    IEnumerator insDebu()
+    {
+        debuCnt++;
+        while(debuCnt == 1)
+        {
+            GameObject g = (GameObject)Resources.Load("PlayerFog");
+            Instantiate(g, player.transform.position, g.transform.rotation);
+            yield return new WaitForSeconds(0.4f);
+            player.SetActive(false);
+            debu = (GameObject)Instantiate(debu, player.transform.position, debu.transform.rotation);
+            debu.transform.position = new Vector3(debu.transform.position.x, debu.transform.position.y - 0.5f, debu.transform.position.z);
+            yield return new WaitForSeconds(0.5f);
+            debuCnt++;
+        }
+        while(lf < 10)
+        {
+            debu.transform.Rotate(new Vector3(lf, 0, lf));
+            lf += lf;
+        }
+        yield return new WaitForSeconds(2.5f);
+        while (rollTime < 10)
+        {
+            debu.transform.Rotate(new Vector3(0, 5f, 0));
+            yield return new WaitForSeconds(0.1f);
+            rollTime++;
+        }
+        yield break;
+    }
+
+    public IEnumerator telop()
 	{
 		audio.loop = false;
         audio.Play();
@@ -219,41 +255,47 @@ public class StageManager : MonoBehaviour {
 	private GameObject objectPool;
 	private	IEnumerator enemyWave ()
 	{
-		if (objTmp) {
-			objectPool = new GameObject("objectPool");
+        if (objTmp)
+        {
+            objectPool = new GameObject("ObjectPool");
             objectPool.AddComponent<RectTransform>();
             objectPool.AddComponent<Canvas>().renderMode = RenderMode.WorldSpace;
             objectPool.AddComponent<CanvasScaler>().uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             objectPool.AddComponent<GraphicRaycaster>();
             objectPool.transform.position = new Vector3(5, 2, 10);
-			foreach (GameObject n in waves) {
-				GameObject childN = Instantiate (n, transform.position, Quaternion.identity) as GameObject;
-				childN.SetActive(false);
-				childN.transform.parent = objectPool.transform;
-			    objTmp = false;
-		    }
-		
-		    while (true) {
-                yield return new WaitForSeconds (0.5f);
 
-                GameObject obp = objectPool.transform.GetChild(k).gameObject; 
+            foreach (GameObject n in waves)
+            {
+                GameObject childN = Instantiate(n, transform.position, Quaternion.identity) as GameObject;
+                childN.SetActive(false);
+                childN.transform.parent = objectPool.transform;
+                objTmp = false;
+            }
+
+            while (true)
+            {
+                yield return new WaitForSeconds(0.5f);
+
+                GameObject obp = objectPool.transform.GetChild(k).gameObject;
                 obp.SetActive(true);
                 int temp = obp.transform.childCount;
-                t =  t + temp;
-                
-                // Waveの子要素のEnemyが全て削除されるまで待機する
-			    while (t > count) {
-				    yield return new WaitForEndOfFrame ();
-			    }		
-			    k++;
+                t = t + temp;
 
-			    // 格納されているWaveを全て実行したらステージクリア
-			    if (objectPool.transform.childCount  <= ++currentWave) {
-				    setResult(true);
-				    StartCoroutine(telop());
-					    yield break;
-			    }
-		    }
-	    }
+                // Waveの子要素のEnemyが全て削除されるまで待機する
+                while (t > count)
+                {
+                    yield return new WaitForEndOfFrame();
+                }
+                k++;
+                // 格納されているWaveを全て実行したらステージクリア
+                if (objectPool.transform.childCount <= ++currentWave)
+                {
+                    print("クリア");
+                    setResult(true);
+                    StartCoroutine(telop());
+                    yield break;
+                }
+            }
+        }
     }
 }

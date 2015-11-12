@@ -84,9 +84,14 @@ public class Controller : MonoBehaviour {
     //残像
     TrailRenderer trail;
 
+    //BMI外用
+    public float bmi = 200f;
 
 
     void Start () {
+        //デバッグ用
+        //bmi = 10f;
+
         //BMIManager
         bmiManager = GameObject.Find("BMIManager").GetComponent<BMIManager>();
 		//攻撃判定オフ
@@ -344,8 +349,6 @@ public class Controller : MonoBehaviour {
             list.Remove(c.gameObject);
         }
     }
-    //BMI外用
-    public float bmi = 200f;
     //取得
     public float getBMI()
     {
