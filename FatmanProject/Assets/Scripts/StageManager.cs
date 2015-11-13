@@ -44,22 +44,23 @@ public class StageManager : MonoBehaviour {
 	
 	//Enemyやられたカウント
 	private int count = 0;
-	
 	private int t ;
 	private int k ;
-	
-	// Waveプレハブを格納する
-	private GameObject[] waves = new GameObject[4];
+
+    // Wave関連
+    private GameObject objectPool;
+    private GameObject[] waves = new GameObject[4];
     int j = 1;
-
-    // 現在のWave
     private int currentWave = 0;
-
 	private bool objTmp = true;
 
+    //デブ関連
     private GameObject debuClone;
-	
-	void Start()
+    int rollTime = 0;
+    float lf = 0.01f;
+    ParticleSystem dp;
+
+    void Start()
 	{
 		//タイマー関係
 		startTime = Time.time;
@@ -115,12 +116,20 @@ public class StageManager : MonoBehaviour {
         {
             Application.LoadLevel(Application.loadedLevel);
         }
+        if (Input.GetKeyDown("z"))
+        {
+            foreach (var val in waves)
+            {
+                val.SetActive(false);
+            } 
+        }
+
     }
 
     public void Counter(int i)
 	{
 		count += i;
-		print("Count: " + count);
+		//print("Count: " + count);
 	} 
 		
 	//タイマー書き換え
@@ -211,9 +220,6 @@ public class StageManager : MonoBehaviour {
 	}
 
     //BMI0でデブを出す
-    int rollTime = 0;
-    float lf = 0.01f;
-    ParticleSystem dp;
     IEnumerator insDebu()
     {
         debuCnt++;
@@ -225,7 +231,7 @@ public class StageManager : MonoBehaviour {
             player.SetActive(false);
             debu = (GameObject)Instantiate(debu, player.transform.position, debu.transform.rotation);
             debuClone = GameObject.Find("Debu(Clone)");
-            print(debuClone);
+            //print(debuClone);
             debuClone.transform.position = new Vector3(debu.transform.position.x, debu.transform.position.y - 0.5f, debu.transform.position.z);
             yield return new WaitForSeconds(0.5f);
             debuCnt++;
@@ -243,10 +249,10 @@ public class StageManager : MonoBehaviour {
             yield return new WaitForSeconds(0.1f);
             rollTime++;
         }
-        print("while抜けた");
         yield break;
     }
 
+    //リザルトテロップ
     public IEnumerator telop()
 	{
 		audio.loop = false;
@@ -258,7 +264,7 @@ public class StageManager : MonoBehaviour {
 	}
 	
 	
-	private GameObject objectPool;
+    //Waveのインスタンス
 	private	IEnumerator enemyWave ()
 	{
         if (objTmp)

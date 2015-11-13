@@ -167,7 +167,7 @@ public class Boss: MonoBehaviour
         }
         catch (Exception e)
         {
-            print(e);
+            print("Boss.OnDisable" + e);
         }
     }
 
@@ -228,7 +228,7 @@ public class Boss: MonoBehaviour
         evilPoint += e;
     }
 
-    void OnCollisionEnter(Collision c)
+    void OnTriggerEnter(Collider c)
     {
         try
         {

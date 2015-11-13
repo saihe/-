@@ -196,15 +196,15 @@ public class BMIManager : MonoBehaviour {
         changeTguage();
         if (Input.GetKeyDown("1"))
         {
-            StartCoroutine(SkillSonic());
+            StartCoroutine(CutIn(0));
         }
         if (Input.GetKeyDown("2"))
         {
-            StartCoroutine(SkillHundred());
+            StartCoroutine(CutIn(1));
         }
         if (Input.GetKeyDown("3"))
         {
-            StartCoroutine(SkillHavoc());
+            StartCoroutine(CutIn(2));
         }
     }
 
@@ -485,13 +485,18 @@ public class BMIManager : MonoBehaviour {
         skillOn = false;
         yield break;
     }
+
+    public GameObject testHavoc;
+    
     //グランドハボック本体
     IEnumerator SkillHavoc()
     {
         ParticleSystem havocP = Havoc.GetComponent<ParticleSystem>();
         anim.SetTrigger("SkillHavoc");
-        Havoc.transform.localScale = Havoc.transform.localScale;
-        Havoc.transform.position = player.transform.position;
+        //Havoc.transform.localScale = Havoc.transform.localScale;
+        //Havoc.transform.position = player.transform.position;
+        //testHavoc.transform.localScale = Havoc.transform.localScale;
+        testHavoc.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 0.1f, player.transform.position.z);
         skillOn = true;
         anim.SetTrigger("OffSkill");
         yield return new WaitForSeconds(0.7f);
@@ -500,9 +505,11 @@ public class BMIManager : MonoBehaviour {
             audio.PlayOneShot(audioSorce[2]);
             skilTime += Time.deltaTime;
             i++;
-            Havoc.SetActive(true);
+            //Havoc.SetActive(true);
+            testHavoc.SetActive(true);
             yield return new WaitForSeconds(1.0f);
-            Havoc.SetActive(false);
+            //Havoc.SetActive(false);
+            testHavoc.SetActive(false);
             yield return new WaitForSeconds(1.0f);
             if (i > 2)
             {

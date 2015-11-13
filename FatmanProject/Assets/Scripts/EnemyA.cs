@@ -152,7 +152,6 @@ public class EnemyA : MonoBehaviour
                 attackOk = false;
                 break;
             case "attack":
-                //attack();
                 if (attackOk == false)
                 {
                     StartCoroutine(attack());
@@ -172,9 +171,10 @@ public class EnemyA : MonoBehaviour
         try
         {
             sm.Counter(1);
-        }catch(Exception e)
+        }
+        catch (Exception e)
         {
-            print(e);
+            print("EnemyA.Ondisable" + e);
         }
     }
 
@@ -232,8 +232,7 @@ public class EnemyA : MonoBehaviour
             //ジャブとスマッシュの攻撃力取得
             jabAtk = con.getJabAtk();
             smashAtk = con.getSmashAtk();
-
-
+            
             switch (c.tag)
             {
                 case "Jab":
@@ -294,7 +293,7 @@ public class EnemyA : MonoBehaviour
     //アイテムの抽選メソッド
     public int itemRnd()
     {
-        itemTmp = UnityEngine.Random.Range(0, 6);
+        itemTmp = UnityEngine.Random.Range(0, 5);
         return itemTmp;
     }
 
