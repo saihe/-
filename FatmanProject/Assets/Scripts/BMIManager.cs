@@ -194,10 +194,22 @@ public class BMIManager : MonoBehaviour {
         //BMI・Tゲージ監視
         changeBMIguage();
         changeTguage();
-	}
+        if (Input.GetKeyDown("1"))
+        {
+            StartCoroutine(SkillSonic());
+        }
+        if (Input.GetKeyDown("2"))
+        {
+            StartCoroutine(SkillHundred());
+        }
+        if (Input.GetKeyDown("3"))
+        {
+            StartCoroutine(SkillHavoc());
+        }
+    }
 
-	//スキルボタンを配列に
-	public void getSkillButton()
+    //スキルボタンを配列に
+    public void getSkillButton()
 	{
 		int j = 1;
 
@@ -217,7 +229,7 @@ public class BMIManager : MonoBehaviour {
 
 			screenButton[i] = GameObject.Find(sName).GetComponent<Button>();
 			j++;
-			print("screenButton" + screenButton[i]);
+			//print("screenButton" + screenButton[i]);
 			screenButton[i].interactable = false;
 		}
 	}

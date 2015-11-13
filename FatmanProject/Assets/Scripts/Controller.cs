@@ -128,6 +128,10 @@ public class Controller : MonoBehaviour {
 		{
             move();
 		}
+        if (Input.GetKeyDown("d"))
+        {
+            bmi = 0;
+        }
 	}
 	
 	//コントローラー状態

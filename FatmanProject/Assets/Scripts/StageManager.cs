@@ -56,6 +56,8 @@ public class StageManager : MonoBehaviour {
     private int currentWave = 0;
 
 	private bool objTmp = true;
+
+    private GameObject debuClone;
 	
 	void Start()
 	{
@@ -210,7 +212,7 @@ public class StageManager : MonoBehaviour {
 
     //BMI0でデブを出す
     int rollTime = 0;
-    float lf = 0.1f;
+    float lf = 0.01f;
     ParticleSystem dp;
     IEnumerator insDebu()
     {
@@ -222,22 +224,26 @@ public class StageManager : MonoBehaviour {
             yield return new WaitForSeconds(0.4f);
             player.SetActive(false);
             debu = (GameObject)Instantiate(debu, player.transform.position, debu.transform.rotation);
-            debu.transform.position = new Vector3(debu.transform.position.x, debu.transform.position.y - 0.5f, debu.transform.position.z);
+            debuClone = GameObject.Find("Debu(Clone)");
+            print(debuClone);
+            debuClone.transform.position = new Vector3(debu.transform.position.x, debu.transform.position.y - 0.5f, debu.transform.position.z);
             yield return new WaitForSeconds(0.5f);
             debuCnt++;
         }
+        yield return new WaitForSeconds(1.0f);
         while(lf < 10)
         {
-            debu.transform.Rotate(new Vector3(lf, 0, lf));
+            debuClone.transform.Rotate(new Vector3(lf, 0, lf));
             lf += lf;
         }
         yield return new WaitForSeconds(2.5f);
         while (rollTime < 10)
         {
-            debu.transform.Rotate(new Vector3(0, 5f, 0));
+            debuClone.transform.Rotate(new Vector3(0, 5f, 0));
             yield return new WaitForSeconds(0.1f);
             rollTime++;
         }
+        print("while抜けた");
         yield break;
     }
 
