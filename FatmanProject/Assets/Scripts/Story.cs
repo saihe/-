@@ -52,7 +52,7 @@ public class Story : MonoBehaviour {
     //上部ストーリー
     IEnumerator storyWriter(string str)
     {
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(10.0f);
         int len = 0;
         StringBuilder sb = new StringBuilder();
         Text text = epilogue.GetComponent<Text>();
@@ -82,7 +82,7 @@ public class Story : MonoBehaviour {
             len++;
             yield return new WaitForSeconds(0.15f);
         }
-        yield return new WaitForSeconds(7.0f);
+        yield return new WaitForSeconds(14.5f);
         StartCoroutine(thank());
         yield break;
     }

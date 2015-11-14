@@ -44,20 +44,23 @@ public class StageManager : MonoBehaviour {
 	
 	//Enemyやられたカウント
 	private int count = 0;
-	
 	private int t ;
 	private int k ;
-	
-	// Waveプレハブを格納する
-	private GameObject[] waves = new GameObject[4];
+
+    // Wave関連
+    private GameObject objectPool;
+    private GameObject[] waves = new GameObject[4];
     int j = 1;
-
-    // 現在のWave
     private int currentWave = 0;
-
 	private bool objTmp = true;
-	
-	void Start()
+
+    //デブ関連
+    private GameObject debuClone;
+    int rollTime = 0;
+    float lf = 0.01f;
+    ParticleSystem dp;
+
+    void Start()
 	{
 		//タイマー関係
 		startTime = Time.time;
@@ -113,12 +116,20 @@ public class StageManager : MonoBehaviour {
         {
             Application.LoadLevel(Application.loadedLevel);
         }
+        if (Input.GetKeyDown("z"))
+        {
+            foreach (var val in waves)
+            {
+                val.SetActive(false);
+            } 
+        }
+
     }
 
     public void Counter(int i)
 	{
 		count += i;
-		print("Count: " + count);
+		//print("Count: " + count);
 	} 
 		
 	//タイマー書き換え
@@ -209,9 +220,6 @@ public class StageManager : MonoBehaviour {
 	}
 
     //BMI0でデブを出す
-    int rollTime = 0;
-    float lf = 0.1f;
-    ParticleSystem dp;
     IEnumerator insDebu()
     {
         debuCnt++;
@@ -222,25 +230,29 @@ public class StageManager : MonoBehaviour {
             yield return new WaitForSeconds(0.4f);
             player.SetActive(false);
             debu = (GameObject)Instantiate(debu, player.transform.position, debu.transform.rotation);
-            debu.transform.position = new Vector3(debu.transform.position.x, debu.transform.position.y - 0.5f, debu.transform.position.z);
+            debuClone = GameObject.Find("Debu(Clone)");
+            //print(debuClone);
+            debuClone.transform.position = new Vector3(debu.transform.position.x, debu.transform.position.y - 0.5f, debu.transform.position.z);
             yield return new WaitForSeconds(0.5f);
             debuCnt++;
         }
+        yield return new WaitForSeconds(1.0f);
         while(lf < 10)
         {
-            debu.transform.Rotate(new Vector3(lf, 0, lf));
+            debuClone.transform.Rotate(new Vector3(lf, 0, lf));
             lf += lf;
         }
         yield return new WaitForSeconds(2.5f);
         while (rollTime < 10)
         {
-            debu.transform.Rotate(new Vector3(0, 5f, 0));
+            debuClone.transform.Rotate(new Vector3(0, 5f, 0));
             yield return new WaitForSeconds(0.1f);
             rollTime++;
         }
         yield break;
     }
 
+    //リザルトテロップ
     public IEnumerator telop()
 	{
 		audio.loop = false;
@@ -252,7 +264,7 @@ public class StageManager : MonoBehaviour {
 	}
 	
 	
-	private GameObject objectPool;
+    //Waveのインスタンス
 	private	IEnumerator enemyWave ()
 	{
         if (objTmp)

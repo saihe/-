@@ -21,7 +21,7 @@ namespace GameSystems{
     };
 
 
-    //デバッグ用
+    //ステート・ステージ確認用
     public class DebugSystem: MonoBehaviour
     {
         public void OnGUI()
@@ -72,6 +72,9 @@ namespace GameSystems{
     class ScenChanger
     {
         State state = new State();
+
+        ClearedStage cs = new ClearedStage();
+
         //選択ステージ
         private static StageName currentStage;
 
@@ -109,7 +112,14 @@ namespace GameSystems{
         //リザルトへ
         public void toResult()
         {
-            Application.LoadLevel("Result");
+            if(PlayerPrefs.GetInt(StageName.Stage3.ToString(), 0) == 1)
+            {
+                Application.LoadLevel("GameClear");
+            }
+            else
+            {
+                Application.LoadLevel("Result");
+            }
         }
     };
 
