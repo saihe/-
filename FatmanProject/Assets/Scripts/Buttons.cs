@@ -32,11 +32,22 @@ public class Buttons : MonoBehaviour
     //
     Animator anim;
 
+    private GameObject howToPlayPanel;
+
+    private GameObject howToPlay;
+
+    Text howToText;
+
     void Start()
     {
         //モーダル取得・非表示
         modal = GameObject.Find("PauseModal");
         nowStage = GameObject.Find("StageName");
+        //操作説明コンポーネント
+        howToPlayPanel = GameObject.Find("HowToPlayPanel");
+        howToPlay = GameObject.Find("HowToPlay");
+        howToText = GameObject.Find("Content").GetComponent<Text>();
+        howToPlayPanel.SetActive(false);
         modal.SetActive(false);
 
         //BMIManagerコンポーネント
@@ -94,6 +105,29 @@ public class Buttons : MonoBehaviour
             state.setState(GameState.Playing);
         }
     }
+    //操作説明ボタン
+    public void openHowToPlay()
+    {
+        howToPlayPanel.SetActive(true);
+    }
+
+    //戻るボタン
+    public void preHowTo()
+    {
+        howToText.text = "戻った";
+    }
+
+    //進むボタン
+    public void nextHowTo()
+    {
+        howToText.text = "進んだ";
+    }
+
+    //閉じるボタン
+    public void closeHowTo()
+    {
+        howToPlayPanel.SetActive(false);
+    }
 
     //タイトルボタン
     public void toTitle()
@@ -110,7 +144,7 @@ public class Buttons : MonoBehaviour
     //T・FiPボタン
     public void startTFiP()
     {
-        print("tfip: " + tfip);
+        //print("tfip: " + tfip);
         if (state.getState() == GameState.Playing)
         {
             //T・FiPが発動してなければ
