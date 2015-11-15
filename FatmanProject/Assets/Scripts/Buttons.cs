@@ -29,8 +29,11 @@ public class Buttons : MonoBehaviour
     //パーティクル
     private ParticleSystem tEffect;
 
-    //
+    //アニメーター
     Animator anim;
+
+    //プレイヤー
+    GameObject player;
 
     private GameObject howToPlayPanel;
 
@@ -38,30 +41,38 @@ public class Buttons : MonoBehaviour
 
     Text howToText;
 
-    void Start()
+    IEnumerator Start()
     {
-        //モーダル取得・非表示
-        modal = GameObject.Find("PauseModal");
-        nowStage = GameObject.Find("StageName");
-        //操作説明コンポーネント
-        howToPlayPanel = GameObject.Find("HowToPlayPanel");
-        howToPlay = GameObject.Find("HowToPlay");
-        howToText = GameObject.Find("Content").GetComponent<Text>();
-        howToPlayPanel.SetActive(false);
-        modal.SetActive(false);
+        while(player == null)
+        {
+            player = GameObject.Find("PlayerSibo");
+            //モーダル取得・非表示
+            modal = GameObject.Find("PauseModal");
+            nowStage = GameObject.Find("StageName");
+            //操作説明コンポーネント
+            howToPlayPanel = GameObject.Find("HowToPlayPanel");
+            howToPlay = GameObject.Find("HowToPlay");
+            howToText = GameObject.Find("Content").GetComponent<Text>();
 
-        //BMIManagerコンポーネント
-        bmiManager = FindObjectOfType<BMIManager>();
+            howToPlayPanel.SetActive(false);
+            modal.SetActive(false);
 
-        //初期化
-        tfip = false;
-        pushButton = false;
+            //初期化
+            tfip = false;
+            pushButton = false;
 
-        tEffect = GameObject.Find("TEffect").GetComponent<ParticleSystem>();
+            if(player != null)
+            {
+                //BMIManagerコンポーネント
+                bmiManager = player.GetComponent<BMIManager>();
+                tEffect = GameObject.Find("TEffect").GetComponent<ParticleSystem>();
 
-        tEffect.Stop();
+                tEffect.Stop();
 
-        anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+                anim = player.GetComponent<Animator>();
+                yield break;
+            }
+        }
     }
 
     //ボタン押しているか

@@ -54,6 +54,7 @@ public class RotateCamera : MonoBehaviour {
 
     IEnumerator Start()
     {
+        target.SetActive(false);
         while (true)
         {
             StartCoroutine(approach());
@@ -70,12 +71,12 @@ public class RotateCamera : MonoBehaviour {
     {
         if (Input.GetMouseButtonDown(0))
         {
-            //print("Touch To Skip");
             skip = true;
             debu.SetActive(false);
             transformFog.SetActive(false);
             transform.eulerAngles = defaultAngles;
             transform.position = defaultPosition;
+            target.SetActive(true);
             state.setState(GameState.Playing);
         }
     }
@@ -119,6 +120,7 @@ public class RotateCamera : MonoBehaviour {
                 transformFog.SetActive(true);
                 yield return new WaitForSeconds(0.01f);
                 debu.SetActive(false);
+                target.SetActive(true);
             }
             else if(transform.eulerAngles.y >= 356f)
             {

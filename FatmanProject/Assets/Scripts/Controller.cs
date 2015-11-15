@@ -102,7 +102,7 @@ public class Controller : MonoBehaviour {
         //bmi = 10f;
 
         //BMIManager
-        bmiManager = GameObject.Find("BMIManager").GetComponent<BMIManager>();
+        bmiManager = GetComponent<BMIManager>();
 		//攻撃判定オフ
 		button = GameObject.Find("Screen").GetComponent<Buttons>();
 

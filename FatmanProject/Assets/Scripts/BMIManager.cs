@@ -109,6 +109,9 @@ public class BMIManager : MonoBehaviour {
     //スキルカットイン
     GameObject[] cutIns = new GameObject[3];
 
+    //Screen
+    private GameObject screen;
+
     //他のスクリプトでbmi呼ぶ用
     public float getBMI()
     {
@@ -184,10 +187,29 @@ public class BMIManager : MonoBehaviour {
         //アニメーター
         anim = player.GetComponent<Animator>();
 
+        //Screen
+        screen = GameObject.Find("Screen");
+
         //スキルカットイン
-        cutIns[0] = GameObject.Find("CutIn1");
-        cutIns[1] = GameObject.Find("CutIn2");
-        cutIns[2] = GameObject.Find("CutIn3");
+        GameObject g = (GameObject)Resources.Load("SkillObjects/CutIn1");
+        print(g.GetComponent<Image>().rectTransform.position);
+        GameObject c = (GameObject)Instantiate(g, g.transform.position, g.transform.rotation);
+        c.transform.SetParent(screen.transform);
+        c.GetComponent<Image>().rectTransform.localPosition = g.GetComponent<Image>().rectTransform.localPosition;
+        c.GetComponent<Image>().rectTransform.localScale = g.GetComponent<Image>().rectTransform.localScale;
+        cutIns[0] = c;
+        g = (GameObject)Resources.Load("SkillObjects/CutIn2");
+        c = (GameObject)Instantiate(g, g.transform.position, g.transform.rotation);
+        c.transform.SetParent(screen.transform);
+        c.GetComponent<Image>().rectTransform.localPosition = g.GetComponent<Image>().rectTransform.localPosition;
+        c.GetComponent<Image>().rectTransform.localScale = g.GetComponent<Image>().rectTransform.localScale;
+        cutIns[1] = c;
+        g = (GameObject)Resources.Load("SkillObjects/CutIn3");
+        c = (GameObject)Instantiate(g, g.transform.position, g.transform.rotation);
+        c.transform.SetParent(screen.transform);
+        c.GetComponent<Image>().rectTransform.localPosition = g.GetComponent<Image>().rectTransform.localPosition;
+        c.GetComponent<Image>().rectTransform.localScale = g.GetComponent<Image>().rectTransform.localScale;
+        cutIns[2] = c;
         cutIns[0].SetActive(false);
         cutIns[1].SetActive(false);
         cutIns[2].SetActive(false);
