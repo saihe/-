@@ -85,7 +85,7 @@ public class Buttons : MonoBehaviour
     //ポーズボタン
     public void pushPause()
     {
-        print("Push");
+        //print("Push");
         //ポーズ中でなければ
         if (state.getState() == GameState.Playing)
         {
@@ -96,15 +96,17 @@ public class Buttons : MonoBehaviour
             nowStage.GetComponent<Text>().text = "現在のステージ\n" + sc.getStageName();
             modal.SetActive(true);
         }
-        //ポーズ中だったら
-        else
-        {
-            //時間を動かしモーダルを消す
-            Time.timeScale = 1.0f;
-            modal.SetActive(false);
-            state.setState(GameState.Playing);
-        }
     }
+
+    public void closePause()
+    {
+        print("プレイ中ではない");
+        //時間を動かしモーダルを消す
+        Time.timeScale = 1.0f;
+        modal.SetActive(false);
+        state.setState(GameState.Playing);
+    }
+
     //操作説明ボタン
     public void openHowToPlay()
     {
@@ -211,12 +213,12 @@ public class Buttons : MonoBehaviour
             //ホームボタンを押してアプリがバックグランドに移行した時
             state.setState(GameState.Playing);
             pushPause();
-            Debug.Log("バックグランドに移行したよ");
+            //Debug.Log("バックグランドに移行したよ");
         }
         else
         {
             //アプリを終了しないでホーム画面からアプリを起動して復帰した時
-            Debug.Log("バックグランドから復帰したよ");
+            //Debug.Log("バックグランドから復帰したよ");
         }
     }
 }
