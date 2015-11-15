@@ -109,6 +109,9 @@ public class BMIManager : MonoBehaviour {
     //スキルカットイン
     GameObject[] cutIns = new GameObject[3];
 
+    //Screen
+    private GameObject screen;
+
     //他のスクリプトでbmi呼ぶ用
     public float getBMI()
     {
@@ -125,7 +128,7 @@ public class BMIManager : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
 
         //波動
-        hado = player.transform.GetChild(3).gameObject.GetComponent<ParticleSystem>();
+        hado = player.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
         hadoc = hado.GetComponent<SphereCollider>();
 
         //BMIゲージ(slider)を取得する
@@ -184,10 +187,29 @@ public class BMIManager : MonoBehaviour {
         //アニメーター
         anim = player.GetComponent<Animator>();
 
+        //Screen
+        screen = GameObject.Find("Screen");
+
         //スキルカットイン
-        cutIns[0] = GameObject.Find("CutIn1");
-        cutIns[1] = GameObject.Find("CutIn2");
-        cutIns[2] = GameObject.Find("CutIn3");
+        GameObject g = (GameObject)Resources.Load("SkillObjects/CutIn1");
+        print(g.GetComponent<Image>().rectTransform.position);
+        GameObject c = (GameObject)Instantiate(g, g.transform.position, g.transform.rotation);
+        c.transform.SetParent(screen.transform);
+        c.GetComponent<Image>().rectTransform.localPosition = g.GetComponent<Image>().rectTransform.localPosition;
+        c.GetComponent<Image>().rectTransform.localScale = g.GetComponent<Image>().rectTransform.localScale;
+        cutIns[0] = c;
+        g = (GameObject)Resources.Load("SkillObjects/CutIn2");
+        c = (GameObject)Instantiate(g, g.transform.position, g.transform.rotation);
+        c.transform.SetParent(screen.transform);
+        c.GetComponent<Image>().rectTransform.localPosition = g.GetComponent<Image>().rectTransform.localPosition;
+        c.GetComponent<Image>().rectTransform.localScale = g.GetComponent<Image>().rectTransform.localScale;
+        cutIns[1] = c;
+        g = (GameObject)Resources.Load("SkillObjects/CutIn3");
+        c = (GameObject)Instantiate(g, g.transform.position, g.transform.rotation);
+        c.transform.SetParent(screen.transform);
+        c.GetComponent<Image>().rectTransform.localPosition = g.GetComponent<Image>().rectTransform.localPosition;
+        c.GetComponent<Image>().rectTransform.localScale = g.GetComponent<Image>().rectTransform.localScale;
+        cutIns[2] = c;
         cutIns[0].SetActive(false);
         cutIns[1].SetActive(false);
         cutIns[2].SetActive(false);
@@ -443,6 +465,15 @@ public class BMIManager : MonoBehaviour {
         anim.SetTrigger("SkillSonic");
         SonicBody.transform.position = new Vector3(player.transform.position.x, -2f, player.transform.position.z);
         SonicBody.transform.rotation = player.transform.rotation;
+        Vector3 target;
+        if(con.getTarget() != null)
+        {
+            target = con.getTarget().position - SonicBody.transform.position;
+        }
+        else
+        {
+            target = player.transform.forward;
+        }
         yield return new WaitForSeconds(0.3f);
         SonicBody.SetActive(true);
         audio.PlayOneShot(audioSorce[2]);
@@ -451,7 +482,7 @@ public class BMIManager : MonoBehaviour {
         {
             skilTime = Time.deltaTime;
             i++;
-            SonicBody.transform.Translate(SonicBody.transform.forward / 10);
+            SonicBody.transform.Translate(target / 100);
             SonicSatellite.transform.RotateAround(SonicBody.transform.position, new Vector3(0, 10f), 30f);
             yield return new WaitForSeconds(0.01f);
             if (i > 100)
@@ -476,7 +507,8 @@ public class BMIManager : MonoBehaviour {
         {
             skilTime += Time.deltaTime;
             i++;
-            HundredJab.transform.position = new Vector3(player.transform.position.x + Random.Range(-1f, 1f), player.transform.position.y + Random.Range(1f, 2f),player.transform.position.z + 1f);
+            transform.Translate(transform.forward / 4);
+            HundredJab.transform.position = new Vector3(HundredField.transform.position.x + Random.Range(-1f, 1f), HundredField.transform.position.y + Random.Range(-1f, 1f), HundredField.transform.position.z);
             HundredField.SetActive(true);
             HundredJab.SetActive(true);
             yield return new WaitForSeconds(0.03f);
@@ -502,11 +534,10 @@ public class BMIManager : MonoBehaviour {
         ParticleSystem havocP = Havoc.GetComponent<ParticleSystem>();
         anim.SetTrigger("SkillHavoc");
         Havoc.transform.localScale = Havoc.transform.localScale;
-        //Havoc.transform.position = player.transform.position;
-        Havoc.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 0.1f, player.transform.position.z);
         skillOn = true;
         anim.SetTrigger("OffSkill");
         yield return new WaitForSeconds(0.7f);
+        Havoc.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 0.1f, player.transform.position.z);
         while (havoc == true)
         {
             audio.PlayOneShot(audioSorce[2]);

@@ -9,7 +9,7 @@ public class Item : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        bmiManager = GameObject.Find("BMIManager").GetComponent<BMIManager>();
+        bmiManager = GameObject.Find("PlayerSibo").GetComponent<BMIManager>();
     }
 
 
