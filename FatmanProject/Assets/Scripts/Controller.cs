@@ -137,6 +137,8 @@ public class Controller : MonoBehaviour {
 		{
             move();
 		}
+
+        //デバッグ用
         if (Input.GetKeyDown("p"))
         {
             bm = 0;
@@ -270,7 +272,7 @@ public class Controller : MonoBehaviour {
 		{
 			if (Input.GetMouseButtonUp(0))
 			{
-				print("Flick");
+				//print("Flick");
                 anim.SetTrigger("Flick");
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
 				
@@ -304,10 +306,10 @@ public class Controller : MonoBehaviour {
     //タップアクション
     IEnumerator punch()
     {
-        print(anim.GetCurrentAnimatorStateInfo(0).fullPathHash);
+        //print(anim.GetCurrentAnimatorStateInfo(0).fullPathHash);
         if (stateHash[1] == anim.GetCurrentAnimatorStateInfo(0).fullPathHash || stateHash[2] == anim.GetCurrentAnimatorStateInfo(0).fullPathHash)
         {
-            print("Jab");
+            //print("Jab");
             jab.enabled = true;
             hado.tag = "Jab";
             transform.Translate(transform.forward * 2 * Time.deltaTime);
@@ -317,7 +319,7 @@ public class Controller : MonoBehaviour {
         }
         else if(stateHash[3] == anim.GetCurrentAnimatorStateInfo(0).fullPathHash)
         {
-            print("Smash");
+            //print("Smash");
             smash.enabled = true;
             hado.tag = "Smash";
             transform.Translate(transform.forward / 10);
@@ -388,10 +390,9 @@ public class Controller : MonoBehaviour {
         //敵の攻撃にあったたら
         if (c.gameObject.tag == "Bullet")
         {
-            print("HIt to Player: Bullet");
+            //print("HIt to Player: Bullet");
             bmi -= 5f;
             c.gameObject.SetActive(false);
-            //Destroy(c.gameObject);
         }
     }
 

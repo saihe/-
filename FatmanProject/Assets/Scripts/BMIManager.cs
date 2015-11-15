@@ -381,7 +381,7 @@ public class BMIManager : MonoBehaviour {
         }
         else if(skillOn == true)
         {
-            print("skilOn");
+            //print("skilOn");
         }
     }
 
