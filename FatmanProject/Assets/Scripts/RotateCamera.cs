@@ -73,6 +73,7 @@ public class RotateCamera : MonoBehaviour {
             //print("Touch To Skip");
             skip = true;
             debu.SetActive(false);
+            transformFog.SetActive(false);
             transform.eulerAngles = defaultAngles;
             transform.position = defaultPosition;
             state.setState(GameState.Playing);

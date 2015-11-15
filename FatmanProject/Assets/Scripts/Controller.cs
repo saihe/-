@@ -91,6 +91,12 @@ public class Controller : MonoBehaviour {
     //BMI外用
     public float bmi = 200f;
 
+    //探知したエネミー格納用
+    private Dictionary<GameObject, float> list = new Dictionary<GameObject, float>();
+    //探知したエネミー
+    Transform target;
+
+
     void Start () {
         //デバッグ用
         //bmi = 10f;
@@ -112,7 +118,7 @@ public class Controller : MonoBehaviour {
         }
 
         //波動非表示
-        hado = transform.GetChild(3).gameObject;
+        hado = transform.GetChild(1).gameObject;
         hado.SetActive(false);
 
         //攻撃判定用
@@ -126,9 +132,13 @@ public class Controller : MonoBehaviour {
         trail.enabled = false;
 
         //アニメーターステート
+        //Stanby
         stateHash[0] = 17588480;
+        //Jab1
         stateHash[1] = 1284765916;
+        //Jab2
         stateHash[2] = -711284378;
+        //Smash
         stateHash[3] = -355276023;
     }
 
@@ -312,7 +322,7 @@ public class Controller : MonoBehaviour {
             //print("Jab");
             jab.enabled = true;
             hado.tag = "Jab";
-            transform.Translate(transform.forward * 2 * Time.deltaTime);
+            transform.Translate(transform.forward / 10);
             yield return new WaitForSeconds(0.5f);
             jab.enabled = false;
             yield break;
@@ -354,7 +364,6 @@ public class Controller : MonoBehaviour {
     Key  : 接触GameObject 
     Value: プレイヤーとの距離
     */
-    public Dictionary<GameObject, float> list = new Dictionary<GameObject, float>();
     void OnTriggerStay(Collider c)
     {
         float min = 10f;
@@ -380,8 +389,7 @@ public class Controller : MonoBehaviour {
                 //プレイヤーに近い方に向く
                 if (min >= val.Value)
                 {
-                    Transform target = val.Key.gameObject.transform;
-                    //print("target: " + target);
+                    target = val.Key.gameObject.transform;
                     transform.LookAt(target);
                 }
             }
@@ -394,6 +402,16 @@ public class Controller : MonoBehaviour {
             bmi -= 5f;
             c.gameObject.SetActive(false);
         }
+    }
+
+    public Transform getTarget()
+    {
+        return target;
+    }
+
+    public void removeList(GameObject g)
+    {
+        list.Remove(g);
     }
 
     //離れたらコレクションから削除

@@ -112,7 +112,7 @@ namespace GameSystems{
         //リザルトへ
         public void toResult()
         {
-            if(currentStage == StageName.Stage3)
+            if(currentStage == StageName.Stage3 && state.getState() == GameState.StageClear)
             {
                 Application.LoadLevel("GameClear");
             }

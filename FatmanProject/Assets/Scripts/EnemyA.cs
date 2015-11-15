@@ -139,7 +139,7 @@ public class EnemyA : MonoBehaviour
         if (evilPoint <= 0)
         {
             //Controllerのターゲットリストから削除
-            con.list.Remove(gameObject);
+            con.removeList(gameObject);
             nowState = enemyState[2];
         }
 

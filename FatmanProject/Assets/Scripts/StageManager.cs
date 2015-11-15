@@ -280,6 +280,8 @@ public class StageManager : MonoBehaviour {
             objectPool.AddComponent<CanvasScaler>().uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             objectPool.AddComponent<GraphicRaycaster>();
             objectPool.transform.position = new Vector3(5, 2, 10);
+
+            //ステージによって読み込むwaveを変える
             switch (sc.getStageName())
             {
                 case StageName.Stage1:

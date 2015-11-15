@@ -23,6 +23,7 @@ public class MotionTest : MonoBehaviour {
     int i = 0;
 	// Update is called once per frame
 	void Update () {
+        //List
         if (Input.GetKeyDown("l"))
         {
             for(int i = 0; i < 5; i++)
@@ -36,6 +37,8 @@ public class MotionTest : MonoBehaviour {
             print("Layer is List");
             text.text = "Now Layer: List";
         }
+
+        //Create
         if (Input.GetKeyDown("p"))
         {
             for (int i = 0; i < 5; i++)
@@ -49,6 +52,8 @@ public class MotionTest : MonoBehaviour {
             print("Layer is Shibokun");
             text.text = "Now Layer: Shibokun";
         }
+
+        //Boss
         if (Input.GetKeyDown("b"))
         {
             for (int i = 0; i < 5; i++)
@@ -62,6 +67,8 @@ public class MotionTest : MonoBehaviour {
             print("Layer is Boss");
             text.text = "Now Layer: Boss";
         }
+
+        //Wakki
         if (Input.GetKeyDown("e"))
         {
             for (int i = 0; i < 5; i++)
@@ -76,6 +83,7 @@ public class MotionTest : MonoBehaviour {
             text.text = "Now Layer: Boss";
         }
 
+        //Lists
         if (anim.GetLayerWeight(4) == 1)
         {
             text.text = "Now Layer: List\nEnter: Next\n1: Stay\n2: Attack\n3: Skill";
@@ -100,14 +108,17 @@ public class MotionTest : MonoBehaviour {
         }
         else
         {
+            //Create
             if (anim.GetLayerWeight(0) == 1)
             {
                 text.text = "Now Layer: Shibokun\nA: Attack\nM: Move\nW: Flick\nT: TFiP\n1: SkillSonic\n2: SkillRush\n3:  SkillHavoc\nEnter: OffSkill";
             }
+            //Boss
             else if (anim.GetLayerWeight(2) == 1)
             {
                 text.text = "Now Layer: Boss\nM: Move\nA: Attack\nS: Skill";
             }
+            //Wakki
             else if (anim.GetLayerWeight(1) == 1)
             {
                 text.text = "Now Layer:Enemy\nM: Move\nA: Attack";
@@ -159,4 +170,6 @@ public class MotionTest : MonoBehaviour {
         }
 
     }
+
+
 }
