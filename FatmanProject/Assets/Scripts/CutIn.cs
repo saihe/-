@@ -44,16 +44,15 @@ public class CutIn : MonoBehaviour {
     void CutInAnimatation(string name)
     {
         b = true;
-
         switch (name)
         {
-            case "CutIn1":
+            case "CutIn1(Clone)":
                 cut = 0;
                 break;
-            case "CutIn2":
+            case "CutIn2(Clone)":
                 cut = 1;
                 break;
-            case "CutIn3":
+            case "CutIn3(Clone)":
                 cut = 2;
                 break;
         }

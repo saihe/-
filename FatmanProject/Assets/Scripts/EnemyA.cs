@@ -294,6 +294,8 @@ public class EnemyA : MonoBehaviour
     public int itemRnd()
     {
         itemTmp = UnityEngine.Random.Range(0, 5);
+        //デバッグ用
+        //itemTmp = 3;
         return itemTmp;
     }
 

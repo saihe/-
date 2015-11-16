@@ -143,7 +143,7 @@ public class Controller : MonoBehaviour {
     }
 
     void Update () {
-        if (state.getState() != GameState.Pausing)
+        if (state.getState() == GameState.Playing)
 		{
             move();
 		}
@@ -175,7 +175,7 @@ public class Controller : MonoBehaviour {
             bm++;
         }
     }
-	
+
 	//コントローラー状態
 	public bool getFlick()
 	{
@@ -186,7 +186,7 @@ public class Controller : MonoBehaviour {
 	public void move()
 	{
 		//タッチされた瞬間のみ
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonDown(0) && state.getState() == GameState.Playing)
 		{
 			//タッチされた座標を取得
 			touch = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
@@ -199,14 +199,14 @@ public class Controller : MonoBehaviour {
 		if (button.getPushButton() == false && state.getState() == GameState.Playing)
 		{
 			//タッチされている間
-			if (Input.GetMouseButton(0))
+			if (Input.GetMouseButton(0) && state.getState() == GameState.Playing)
 			{
 				//タップ判定
 				tapOk = false;
 				
 				//タッチ後移動した座標
 				dragPoint = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-				
+
 				//プレイヤーが移動するベクトル
 				x = dragPoint.x - touch.x;
 				y = 0;
@@ -228,7 +228,7 @@ public class Controller : MonoBehaviour {
 				double flickSpeed = flickVector / touchTime;
 				
 				//フリックスピードが800以上あればフリック
-				if (flickSpeed > 800)
+				if (flickSpeed > 800 && state.getState() == GameState.Playing)
 				{
 					//フリックであると判定する
 					flickOk = true;
@@ -273,14 +273,12 @@ public class Controller : MonoBehaviour {
             {
                 anim.SetBool("Move", false);
             }
-			
-		}
-		
-		
-		//フリックアクション
-		if (flickOk == true)
+        }
+
+        //フリックアクション
+        if (flickOk == true && state.getState() == GameState.Playing)
 		{
-			if (Input.GetMouseButtonUp(0))
+			if (Input.GetMouseButtonUp(0) && state.getState() == GameState.Playing)
 			{
 				//print("Flick");
                 anim.SetTrigger("Flick");
@@ -298,9 +296,9 @@ public class Controller : MonoBehaviour {
 		}
 
         //タップアクション
-		if(tapOk == true)
+		if(tapOk == true && state.getState() == GameState.Playing)
 		{
-			if (Input.GetMouseButtonUp(0))
+			if (Input.GetMouseButtonUp(0) && state.getState() == GameState.Playing)
 			{
 				//print("Tap");
                 tapCount++;

@@ -70,6 +70,7 @@ public class LoadScene : MonoBehaviour
         }
         lodingBar.value = 0.9f;
         loadingText.text = "NowLoading...100%";
+        state.setState(GameState.NotPlaying);
         yield return async;
     }
 

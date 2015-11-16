@@ -63,6 +63,8 @@ public class StageManager : MonoBehaviour {
     float lf = 0.01f;
     ParticleSystem dp;
 
+    private GameObject playerFog;
+
     void Start()
 	{
         //現在のステージ確認用
@@ -200,7 +202,8 @@ public class StageManager : MonoBehaviour {
 				//audio.PlayOneShot(audioSorce[1]);
 				i++;
 			}
-			state.setState(GameState.StageClear);
+            StartCoroutine(telop());
+            state.setState(GameState.StageClear);
 			resultTelop.GetComponent<Text>().text = "ステージクリア";
 		}
 		else if(c == false)
@@ -210,11 +213,12 @@ public class StageManager : MonoBehaviour {
 			while (i < 1)
 			{
 				audio.Stop();
-				audio.clip = audioSorce[2];
+				//audio.clip = audioSorce[2];
                 //audio.Play();
                 //audio.PlayOneShot(audioSorce[2]);
                 i++;
 			}
+            StartCoroutine(telop());
             StartCoroutine(insDebu());
 			state.setState(GameState.GameOver);
 			resultTelop.GetComponent<Text>().text = "ゲームオーバー";
@@ -228,7 +232,8 @@ public class StageManager : MonoBehaviour {
         while(debuCnt == 1)
         {
             GameObject g = (GameObject)Resources.Load("PlayerFog");
-            Instantiate(g, player.transform.position, g.transform.rotation);
+            print(g);
+            playerFog = (GameObject)Instantiate(g, player.transform.position, g.transform.rotation);
             yield return new WaitForSeconds(0.4f);
             player.SetActive(false);
             debu = (GameObject)Instantiate(debu, player.transform.position, debu.transform.rotation);
@@ -260,7 +265,8 @@ public class StageManager : MonoBehaviour {
         audio.Play();
 		resultTelop.SetActive(true);
 		yield return new WaitForSeconds(3.0f);
-		resultTelop.SetActive(false);
+        playerFog.SetActive(false);
+        resultTelop.SetActive(false);
 		sc.toResult();
 	}
 	
@@ -322,7 +328,6 @@ public class StageManager : MonoBehaviour {
                 {
                     print("クリア");
                     setResult(true);
-                    StartCoroutine(telop());
                     yield break;
                 }
             }

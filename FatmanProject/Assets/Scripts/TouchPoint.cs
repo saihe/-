@@ -61,14 +61,7 @@ public class TouchPoint : MonoBehaviour {
 
     void Update()
     {
-        //フリックの状態
-         if (controller.getFlick() == true)
-        {
-            //print("Flick!");
-        }
-        else
-        {
-        }
+
         //タッチパッド作成可能領域の指定
         if (Input.GetMouseButtonDown(0))
         {

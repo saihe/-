@@ -192,7 +192,6 @@ public class BMIManager : MonoBehaviour {
 
         //スキルカットイン
         GameObject g = (GameObject)Resources.Load("SkillObjects/CutIn1");
-        print(g.GetComponent<Image>().rectTransform.position);
         GameObject c = (GameObject)Instantiate(g, g.transform.position, g.transform.rotation);
         c.transform.SetParent(screen.transform);
         c.GetComponent<Image>().rectTransform.localPosition = g.GetComponent<Image>().rectTransform.localPosition;
@@ -236,6 +235,10 @@ public class BMIManager : MonoBehaviour {
         if (Input.GetKeyDown("3"))
         {
             StartCoroutine(CutIn(2));
+        }
+        if (Input.GetKeyDown("t"))
+        {
+            t = 99;
         }
     }
 
@@ -308,7 +311,6 @@ public class BMIManager : MonoBehaviour {
         if(bmi <= 0)
         {
             stage.setResult(false);
-            StartCoroutine(stage.telop());
         }
     }
 
@@ -346,7 +348,9 @@ public class BMIManager : MonoBehaviour {
             tEffect.startSize = 10f;
             hado.startSize = 3f;
             hadoc.radius = 0.5f;
-			screenButton[2].interactable = true;
+            screenButton[0].interactable = true;
+            screenButton[1].interactable = true;
+            screenButton[2].interactable = true;
         }
         //レベル1
         if (t < 66)
@@ -466,14 +470,7 @@ public class BMIManager : MonoBehaviour {
         SonicBody.transform.position = new Vector3(player.transform.position.x, -2f, player.transform.position.z);
         SonicBody.transform.rotation = player.transform.rotation;
         Vector3 target;
-        if(con.getTarget() != null)
-        {
-            target = con.getTarget().position - SonicBody.transform.position;
-        }
-        else
-        {
-            target = player.transform.forward;
-        }
+        target = transform.forward;
         yield return new WaitForSeconds(0.3f);
         SonicBody.SetActive(true);
         audio.PlayOneShot(audioSorce[2]);
@@ -482,7 +479,7 @@ public class BMIManager : MonoBehaviour {
         {
             skilTime = Time.deltaTime;
             i++;
-            SonicBody.transform.Translate(target / 100);
+            SonicBody.transform.Translate(target / 10, Space.World);
             SonicSatellite.transform.RotateAround(SonicBody.transform.position, new Vector3(0, 10f), 30f);
             yield return new WaitForSeconds(0.01f);
             if (i > 100)
@@ -492,13 +489,16 @@ public class BMIManager : MonoBehaviour {
         }
         i = 0;
         //print("SkillTime: " + skilTime);
+        print("End of SonicCol");
+        anim.SetTrigger("OffSkill");
+        print("anim.setTrigger(off)");
         skilTime = 0f;
         SonicBody.transform.position = new Vector3(0f, 2f, 2f);
         SonicBody.SetActive(false);
         skillOn = false;
         yield break;
     }
-    //百烈拳本体
+    //ラッシュ本体
     IEnumerator SkillHundred()
     {
         anim.SetTrigger("SkillRush");
@@ -507,7 +507,7 @@ public class BMIManager : MonoBehaviour {
         {
             skilTime += Time.deltaTime;
             i++;
-            transform.Translate(transform.forward / 4);
+            //transform.Translate(transform.forward / 4);
             HundredJab.transform.position = new Vector3(HundredField.transform.position.x + Random.Range(-1f, 1f), HundredField.transform.position.y + Random.Range(-1f, 1f), HundredField.transform.position.z);
             HundredField.SetActive(true);
             HundredJab.SetActive(true);
@@ -515,6 +515,7 @@ public class BMIManager : MonoBehaviour {
             HundredJab.SetActive(false);
             if (i > 100)
             {
+                print("End of Rush");
                 HundredField.SetActive(false);
                 hundred = false;
             }

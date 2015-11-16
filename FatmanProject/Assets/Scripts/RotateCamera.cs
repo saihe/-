@@ -26,6 +26,8 @@ public class RotateCamera : MonoBehaviour {
 
     void Awake()
     {
+        //ステート
+        state.setState(GameState.NotPlaying);
         //デブ
         GameObject g = (GameObject)Resources.Load("Debu");
         debu = (GameObject)Instantiate(g, g.transform.position, g.transform.rotation);
@@ -33,8 +35,6 @@ public class RotateCamera : MonoBehaviour {
         //プレイヤー
         target = GameObject.Find("PlayerSibo");
 
-        //ステート
-        state.setState(GameState.NotPlaying);
 
         //ポジション
         defaultPosition = transform.position;
@@ -63,22 +63,35 @@ public class RotateCamera : MonoBehaviour {
             yield return new WaitForSeconds(4.0f);
             StartCoroutine(leave());
             yield break;
-
         }
     }
-
+    int i = 0;
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if(i == 0)
         {
-            skip = true;
-            debu.SetActive(false);
-            transformFog.SetActive(false);
-            transform.eulerAngles = defaultAngles;
-            transform.position = defaultPosition;
-            target.SetActive(true);
-            state.setState(GameState.Playing);
+            if (Input.GetMouseButtonDown(0))
+            {
+                i++;
+                skip = true;
+                debu.SetActive(false);
+                transformFog.SetActive(false);
+                transform.eulerAngles = defaultAngles;
+                transform.position = defaultPosition;
+                StartCoroutine(skipOk());
+            }
         }
+
+        if(skip == true)
+        {
+        }
+    }
+    
+    IEnumerator skipOk()
+    {
+        target.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        state.setState(GameState.Playing);
     }
 
     IEnumerator approach()
