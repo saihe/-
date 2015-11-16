@@ -81,9 +81,6 @@ public class Controller : MonoBehaviour {
     SphereCollider jab;
     SphereCollider smash;
 
-    //残像
-    TrailRenderer trail;
-
     //アニメーターステート保存用
     int[] stateHash = new int[4];
 
@@ -127,10 +124,6 @@ public class Controller : MonoBehaviour {
         jab.enabled = false;
         smash.enabled = false;
 
-        //残像
-        trail = transform.GetComponent<TrailRenderer>();
-        trail.enabled = false;
-
         //アニメーターステート
         //Stanby
         stateHash[0] = 17588480;
@@ -151,13 +144,12 @@ public class Controller : MonoBehaviour {
         //デバッグ用
         if (Input.GetKeyDown("p"))
         {
-            bm = 0;
+            bm = true;
             StartCoroutine(bmi200());
         }
         if (Input.GetKeyDown("o"))
         {
-            bm = 0;
-            StopCoroutine(bmi200());
+            bm = false;
         }
         if (Input.GetKeyDown("d"))
         {
@@ -165,14 +157,14 @@ public class Controller : MonoBehaviour {
         }
 	}
 
-    int bm = 0;
+    //デバッグ用BMI回復
+    bool bm = false;
     IEnumerator bmi200()
     {
-        while(bm < 1000)
+        while(bm == true)
         {
             bmi = 200;
             yield return new WaitForSeconds(0.5f);
-            bm++;
         }
     }
 
@@ -350,9 +342,6 @@ public class Controller : MonoBehaviour {
     //フリックアクション
     IEnumerator flick()
     {
-        trail.enabled = true;
-        yield return new WaitForSeconds(0.5f);
-        trail.enabled = false;
         yield break;
     }
 
@@ -402,11 +391,13 @@ public class Controller : MonoBehaviour {
         }
     }
 
+    //ターゲット取得用
     public Transform getTarget()
     {
         return target;
     }
 
+    //ターゲットをコレクションから削除する
     public void removeList(GameObject g)
     {
         list.Remove(g);
@@ -420,17 +411,17 @@ public class Controller : MonoBehaviour {
             list.Remove(c.gameObject);
         }
     }
-    //取得
+    //BMI取得
     public float getBMI()
     {
         return bmi;
     }
-    //セット
+    //BMIセット
     public void setBMI(float f)
     {
         bmi = f;
     }
-    //足す
+    //BMIに足す
     public void incBMI(float f)
     {
         bmi += f;
