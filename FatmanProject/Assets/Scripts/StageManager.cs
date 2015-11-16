@@ -265,7 +265,6 @@ public class StageManager : MonoBehaviour {
         audio.Play();
 		resultTelop.SetActive(true);
 		yield return new WaitForSeconds(3.0f);
-        playerFog.SetActive(false);
         resultTelop.SetActive(false);
 		sc.toResult();
 	}

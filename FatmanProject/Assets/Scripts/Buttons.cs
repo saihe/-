@@ -50,22 +50,18 @@ public class Buttons : MonoBehaviour
             if (howToText == null)
             {
                 //モーダル取得・非表示
-                modal = GameObject.Find("PauseModal");
-                nowStage = GameObject.Find("StageName");
-                howToPlayPanel = GameObject.Find("HowToPlayPanel");
-                howToPlay = GameObject.Find("HowToPlay");
-                howToText = GameObject.Find("Content").GetComponent<Text>();
-            }
-            else if (howToText != null)
-            {
+                modal = GameObject.Find("PausePack").transform.GetChild(0).gameObject;
+                nowStage = modal.transform.GetChild(0).gameObject;
+                howToPlayPanel = modal.transform.GetChild(1).gameObject;
+                howToPlay = howToPlayPanel.transform.GetChild(0).gameObject;
+                howToText = howToPlay.transform.GetChild(1).gameObject.GetComponent<Text>();
                 howToPlayPanel.SetActive(false);
                 modal.SetActive(false);
             }
-
+            yield return null;
             //初期化
             tfip = false;
             pushButton = false;
-            yield return new WaitForSeconds(0.1f);
             if(player != null)
             {
                 if(player.activeSelf == true)

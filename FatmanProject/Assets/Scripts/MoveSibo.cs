@@ -12,7 +12,6 @@ public class MoveSibo : MonoBehaviour {
 	void Start () {
 		anim = GetComponent<Animator>();
 		anim.SetLayerWeight(6, 1);
-		print (camera);
 		siboPos = transform.position;
 		startPos = transform.position;
 		startRot = transform.localEulerAngles;
