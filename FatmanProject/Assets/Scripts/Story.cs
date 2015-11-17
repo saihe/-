@@ -19,6 +19,7 @@ public class Story : MonoBehaviour {
 	void Start () {
         storyPanel = transform.GetChild(1).gameObject;
         storyText = storyPanel.transform.GetChild(0).gameObject;
+        print(storyPanel);
         text = storyText.GetComponent<Text>();
         story[0] = "いじめを受けていた四坊英雄は不思議なベルトを拾うことによりヒーローへと変身した。\n自分を苦しめたいじめをなくすため、いじめっこたちを更正させる戦いが今始まる。	";
         story[1] = "いじめっこの取り巻きたちを倒した四坊英雄は、いじめの主犯である大将を更正させようと次の戦いに挑むのであった。";

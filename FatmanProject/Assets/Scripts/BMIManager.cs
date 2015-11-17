@@ -407,7 +407,7 @@ public class BMIManager : MonoBehaviour {
         }
         else if(skillOn == true)
         {
-            //print("skilOn");
+            print("skilOn");
         }
     }
 
@@ -578,19 +578,19 @@ public class BMIManager : MonoBehaviour {
         switch (itemName)
         {
             case 0:
-                //print("おむすび");
+                //print("コーラ 96kcal");
                 healPoint = 15f;
                 break;
             case 1:
-                //print("コーラ");
+                //print("おむすび179kcal");
                 healPoint = 20f;
                 break;
             case 2:
-                //print("ポテチ");
+                //print("肉まん251kcal");
                 healPoint = 30f;
                 break;
             case 3:
-                //print("ピザ");
+                //print("ポテチ569kcal");
                 healPoint = 50f;
                 break;
             case 4:
@@ -602,6 +602,7 @@ public class BMIManager : MonoBehaviour {
                 break;
         }
         con.incBMI(healPoint);
+
         return bmi;
     }
 }

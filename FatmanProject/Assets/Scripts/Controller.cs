@@ -7,7 +7,7 @@ using System.Linq;
 public class Controller : MonoBehaviour {
 
     //移動判定かどうか
-    private bool moveOk = false;
+    private bool moveOk;
 	
 	//タップ判定かどうか
 	private bool tapOk = false;
@@ -97,6 +97,8 @@ public class Controller : MonoBehaviour {
     void Start () {
         //デバッグ用
         //bmi = 10f;
+
+        moveOk = false;
 
         //BMIManager
         bmiManager = GetComponent<BMIManager>();
@@ -264,6 +266,7 @@ public class Controller : MonoBehaviour {
             if (Input.GetMouseButtonUp(0))
             {
                 anim.SetBool("Move", false);
+                moveOk = false;
             }
         }
 
@@ -389,6 +392,12 @@ public class Controller : MonoBehaviour {
             bmi -= 5f;
             c.gameObject.SetActive(false);
         }
+    }
+
+    //タッチパッド向けスライド取得用
+    public bool getMoveOk()
+    {
+        return moveOk;
     }
 
     //ターゲット取得用
