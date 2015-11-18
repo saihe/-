@@ -43,34 +43,39 @@ public class Buttons : MonoBehaviour
 
     IEnumerator Start()
     {
+        yield return new WaitForSeconds(0.01f);
         while(player == null)
         {
             player = GameObject.Find("PlayerSibo");
-            //モーダル取得・非表示
-            modal = GameObject.Find("PauseModal");
-            nowStage = GameObject.Find("StageName");
             //操作説明コンポーネント
-            howToPlayPanel = GameObject.Find("HowToPlayPanel");
-            howToPlay = GameObject.Find("HowToPlay");
-            howToText = GameObject.Find("Content").GetComponent<Text>();
-
-            howToPlayPanel.SetActive(false);
-            modal.SetActive(false);
-
+            if (howToText == null)
+            {
+                //モーダル取得・非表示
+                modal = GameObject.Find("PausePack").transform.GetChild(0).gameObject;
+                nowStage = modal.transform.GetChild(2).gameObject;
+                howToPlayPanel = modal.transform.GetChild(1).gameObject;
+                howToPlay = howToPlayPanel.transform.GetChild(0).gameObject;
+                howToText = howToPlay.transform.GetChild(1).gameObject.GetComponent<Text>();
+                howToPlayPanel.SetActive(false);
+                modal.SetActive(false);
+            }
+            yield return null;
             //初期化
             tfip = false;
             pushButton = false;
-
-            if(player != null)
+            if (player != null)
             {
-                //BMIManagerコンポーネント
-                bmiManager = player.GetComponent<BMIManager>();
-                tEffect = GameObject.Find("TEffect").GetComponent<ParticleSystem>();
+                if(player.activeSelf == true)
+                {
+                    //BMIManagerコンポーネント
+                    bmiManager = player.GetComponent<BMIManager>();
+                    tEffect = GameObject.Find("TEffect").GetComponent<ParticleSystem>();
 
-                tEffect.Stop();
+                    tEffect.Stop();
 
-                anim = player.GetComponent<Animator>();
-                yield break;
+                    anim = player.GetComponent<Animator>();
+                    yield break;
+                }
             }
         }
     }
@@ -102,7 +107,7 @@ public class Buttons : MonoBehaviour
         {
             //時間を止めてモーダルを出す
             Time.timeScale = 0f;
-            print("timeScale = 0");
+            //print("timeScale = 0");
             state.setState(GameState.Pausing);
             nowStage.GetComponent<Text>().text = "現在のステージ\n" + sc.getStageName();
             modal.SetActive(true);
@@ -111,7 +116,7 @@ public class Buttons : MonoBehaviour
 
     public void closePause()
     {
-        print("プレイ中ではない");
+        //print("プレイ中ではない");
         //時間を動かしモーダルを消す
         Time.timeScale = 1.0f;
         modal.SetActive(false);

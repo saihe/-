@@ -23,7 +23,7 @@ public class GetStateTest : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         transform.position = new Vector3(0, 0, 0);
-        //print(anim.GetCurrentAnimatorStateInfo(0).fullPathHash);
+        print(anim.GetCurrentAnimatorStateInfo(0).fullPathHash);
         if (Input.GetKeyDown("s"))
         {
             foreach(var val in state)

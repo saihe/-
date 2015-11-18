@@ -24,6 +24,8 @@ public class StageSelect : MonoBehaviour {
     private GameObject stage3;
     DebugSystem ds = new DebugSystem();
 
+    int i = 0;
+
     void Start()
     {
         audio = GetComponent<AudioSource>();
@@ -101,28 +103,42 @@ public class StageSelect : MonoBehaviour {
     public void toStageSelect()
     {
         state.setState(GameState.NotPlaying);
-        StartCoroutine(stageSelectCoroutine());
+        stageSelectCoroutine();
     }
-    IEnumerator stageSelectCoroutine()
+    void stageSelectCoroutine()
     {
         audio.Play();
-        yield return new WaitForSeconds(1.0f);
+        while (i < 300)
+        {
+            i++;
+            if (i > 299)
+            {
+                break;
+            }
+        }
+        i = 0;
         sc.toStageSelect();
-        yield break;
     }
 
     //ステージ1ボタン
     public void stage01()
     {
         sc.setStage(StageName.Stage1);
-        StartCoroutine(loadingCoroutine());
+        loadingCoroutine();
     }
-    IEnumerator loadingCoroutine()
+    void loadingCoroutine()
     {
         audio.Play();
-        yield return new WaitForSeconds(1.0f);
+        while (i < 300)
+        {
+            i++;
+            if (i > 299)
+            {
+                break;
+            }
+        }
+        i = 0;
         sc.toLoading();
-        yield break;
     }
 
     //ステージ2ボタン
@@ -131,7 +147,7 @@ public class StageSelect : MonoBehaviour {
         if (cs.getClearedStages()[StageName.Stage1] == 1)
         {
             sc.setStage(StageName.Stage2);
-            StartCoroutine(loadingCoroutine());
+            loadingCoroutine();
         }
     }
 
@@ -141,7 +157,7 @@ public class StageSelect : MonoBehaviour {
         if (cs.getClearedStages()[StageName.Stage1] == 1 && cs.getClearedStages()[StageName.Stage2] == 1)
         {
             sc.setStage(StageName.Stage3);
-            StartCoroutine(loadingCoroutine());
+            loadingCoroutine();
         }
     }
 
@@ -160,13 +176,13 @@ public class StageSelect : MonoBehaviour {
             default:
                 break;
         }
-        StartCoroutine(loadingCoroutine());
+        loadingCoroutine();
     }
 
     //リトライボタン
     public void retry()
     {
-        StartCoroutine(loadingCoroutine());
+        loadingCoroutine();
     }
 
     //初期化ボタン

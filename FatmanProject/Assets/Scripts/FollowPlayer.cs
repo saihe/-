@@ -12,15 +12,12 @@ public class FollowPlayer : MonoBehaviour
     IEnumerator Start ()
 	{
         defaultPosition = transform.position;
-        print(defaultPosition);
         while (target == null)
         {
-            print(target);
             target = GameObject.FindGameObjectWithTag("Player");
             //自分自身とtargetとの相対距離を求める
             if (target != null)
             {
-                print(target);
                 offset = defaultPosition - target.transform.position;
                 yield break;
             }
@@ -30,11 +27,13 @@ public class FollowPlayer : MonoBehaviour
 	
 	void Update ()
 	{
-        if(state.getState() == GameState.Playing)
+        if(target != null)
         {
-            //target = GameObject.FindGameObjectWithTag("Player");
-            // 自分自身の座標に、targetの座標に相対座標を足した値を設定する
-            transform.position = (target.transform.position + offset);
+            if (state.getState() == GameState.Playing)
+            {
+                // 自分自身の座標に、targetの座標に相対座標を足した値を設定する
+                transform.position = (target.transform.position + offset);
+            }
         }
     }
 }
