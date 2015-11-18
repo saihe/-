@@ -52,7 +52,7 @@ public class Buttons : MonoBehaviour
             {
                 //モーダル取得・非表示
                 modal = GameObject.Find("PausePack").transform.GetChild(0).gameObject;
-                nowStage = modal.transform.GetChild(0).gameObject;
+                nowStage = modal.transform.GetChild(2).gameObject;
                 howToPlayPanel = modal.transform.GetChild(1).gameObject;
                 howToPlay = howToPlayPanel.transform.GetChild(0).gameObject;
                 howToText = howToPlay.transform.GetChild(1).gameObject.GetComponent<Text>();
@@ -63,16 +63,12 @@ public class Buttons : MonoBehaviour
             //初期化
             tfip = false;
             pushButton = false;
-            print(tfip);
             if (player != null)
             {
-                print(player);
                 if(player.activeSelf == true)
                 {
-                    print("hoge");
                     //BMIManagerコンポーネント
                     bmiManager = player.GetComponent<BMIManager>();
-                    print(bmiManager);
                     tEffect = GameObject.Find("TEffect").GetComponent<ParticleSystem>();
 
                     tEffect.Stop();

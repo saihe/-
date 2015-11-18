@@ -20,6 +20,8 @@ public class RotateCamera : MonoBehaviour {
 
     private GameObject transformFog;
 
+    public TouchPoint touchPoint;
+
     State state = new State();
 
     private bool skip;
@@ -35,7 +37,6 @@ public class RotateCamera : MonoBehaviour {
         //プレイヤー
         target = GameObject.Find("PlayerSibo");
 
-
         //ポジション
         defaultPosition = transform.position;
         defaultAngles = transform.eulerAngles;
@@ -50,6 +51,9 @@ public class RotateCamera : MonoBehaviour {
 
         //スキップ
         skip = false;
+
+        //タッチパッド
+        touchPoint = FindObjectOfType<TouchPoint>();
     }
 
     IEnumerator Start()
@@ -90,6 +94,8 @@ public class RotateCamera : MonoBehaviour {
     IEnumerator skipOk()
     {
         target.SetActive(true);
+        target.GetComponent<BMIManager>().getSkillButton();
+        touchPoint.setController(target);
         yield return new WaitForSeconds(0.3f);
         state.setState(GameState.Playing);
     }
@@ -134,6 +140,7 @@ public class RotateCamera : MonoBehaviour {
                 yield return new WaitForSeconds(0.01f);
                 debu.SetActive(false);
                 target.SetActive(true);
+                target.GetComponent<BMIManager>().getSkillButton();
             }
             else if(transform.eulerAngles.y >= 356f)
             {

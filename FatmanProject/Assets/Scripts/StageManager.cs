@@ -301,7 +301,7 @@ public class StageManager : MonoBehaviour {
             }
             foreach (GameObject n in waves)
             {
-                GameObject childN = Instantiate(n, transform.position, Quaternion.identity) as GameObject;
+                GameObject childN = Instantiate(n, n.transform.position, Quaternion.identity) as GameObject;
                 childN.SetActive(false);
                 childN.transform.parent = objectPool.transform;
                 objTmp = false;

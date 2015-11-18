@@ -41,6 +41,8 @@ public class TouchPoint : MonoBehaviour {
 
     State state = new State();
 
+    private bool ok;
+
     void Start () {
         //パネル
         panel = transform.GetChild(0).gameObject;
@@ -50,7 +52,7 @@ public class TouchPoint : MonoBehaviour {
         //PanelのImageコンポーネント
         panelImage = panel.GetComponent<Image>();
         //Controllerコンポーネント取得
-        controller = FindObjectOfType<Controller>();
+        //controller = FindObjectOfType<Controller>();
         button = FindObjectOfType<Buttons>();
         
         //タッチパッド非表示
@@ -61,12 +63,9 @@ public class TouchPoint : MonoBehaviour {
 
     void Update()
     {
-
         //タッチパッド作成可能領域の指定
         if (Input.GetMouseButtonDown(0))
         {
-            //60 <= y <= 286
-            //2 <= x <= 198
             x = Input.mousePosition.x;
             y = Input.mousePosition.y;
         }
@@ -74,12 +73,17 @@ public class TouchPoint : MonoBehaviour {
         //ポーズ中なら作らない
         if ( button.getPushButton() == false && state.getState() == GameState.Playing)
         {
-             createPad();
+            createPad();
         }
         else
         {
-        //    print("PauseNow or PushButtonNow");
+            //print("PauseNow or PushButtonNow");
         }
+    }
+
+    public void setController(GameObject g)
+    {
+        controller = g.GetComponent<Controller>();
     }
 
     //タッチした場所としている場所にイメージを張る
@@ -102,10 +106,6 @@ public class TouchPoint : MonoBehaviour {
             //タッチパッドをタッチ地点に移動
             panel.transform.position = touchPoint;
             touchPad.transform.position = touchPoint;
-
-            //タッチパッド表示
-            panel.SetActive(true);
-            touchPad.SetActive(true);
         }
 
         //タッチしてる場所
@@ -116,10 +116,18 @@ public class TouchPoint : MonoBehaviour {
 
             //タッチパッドをタッチ地点に移動
             slidePad.transform.position = slidePoint;
-
-            //タッチパッド表示
-            slidePad.SetActive(true);
-
+            ok = controller.getMoveOk();
+            if (ok == true)
+            {
+                //タッチパッド表示
+                panel.SetActive(true);
+                touchPad.SetActive(true);
+                slidePad.SetActive(true);
+            }
+            else
+            {
+                //print("移動中: " + ok);
+            }
         }
 
         //イメージを非表示

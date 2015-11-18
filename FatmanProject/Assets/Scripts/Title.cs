@@ -11,37 +11,47 @@ public class Title : MonoBehaviour {
     ClearedStage cs = new ClearedStage();
 
     //オーディオ
-    AudioSource audio;
+    AudioSource audioSource;
+    
+
+    private int i = 0;
 
     void Start()
     {
         i = 0;
         cs.defaultData();
         cs.getCleared();
-        foreach(var val in cs.getClearedStages())
+        foreach (var val in cs.getClearedStages())
         {
             print(val);
         }
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
-
-    private int i = 0;
     void OnGUI()
     {
         if(i < 1)
         {
             if (Input.GetMouseButtonDown(0))
             {
-                StartCoroutine(TapToStart());
+                TapToStart();
                 i++;
             }
         }
     }
 
-    IEnumerator TapToStart()
+    void TapToStart()
     {
-        audio.Play();
-        yield return new WaitForSeconds(2.0f);
-        sc.toStageSelect();
+        audioSource.PlayOneShot(audioSource.clip);
+        while (i < 300)
+        {
+            i++;
+            print("");
+            if(i > 299)
+            {
+                i = 0;
+                sc.toStageSelect();
+                break;
+            }
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.Linq;
 public class Controller : MonoBehaviour {
 
     //移動判定かどうか
-    private bool moveOk = false;
+    private bool moveOk;
 	
 	//タップ判定かどうか
 	private bool tapOk = false;
@@ -97,6 +97,8 @@ public class Controller : MonoBehaviour {
     void Start () {
         //デバッグ用
         //bmi = 10f;
+
+        moveOk = false;
 
         //BMIManager
         bmiManager = GetComponent<BMIManager>();
@@ -232,11 +234,8 @@ public class Controller : MonoBehaviour {
 					//移動判定オン
 					moveOk = true;
                     //移動モーション
-                    if(bmiManager.getSkillOn() == false)
-                    {
-                        anim.SetBool("Move", true);
-                        anim.SetTrigger("Move");
-                    }
+                    anim.SetBool("Move", true);
+                    anim.SetTrigger("Move");
 
                     //入力ベクトルをQuaternionに変換
                     Quaternion to = Quaternion.LookRotation(direction);
@@ -264,6 +263,7 @@ public class Controller : MonoBehaviour {
             if (Input.GetMouseButtonUp(0))
             {
                 anim.SetBool("Move", false);
+                moveOk = false;
             }
         }
 
@@ -281,7 +281,7 @@ public class Controller : MonoBehaviour {
 				{
 					direction = new Vector3(-direction.x, 0, direction.z);
 				}
-				transform.Translate(direction * 100, Space.World);
+				transform.Translate(direction * 50, Space.World);
                 StartCoroutine(flick());
 				flickOk = false;
 			}
@@ -389,6 +389,12 @@ public class Controller : MonoBehaviour {
             bmi -= 5f;
             c.gameObject.SetActive(false);
         }
+    }
+
+    //タッチパッド向けスライド取得用
+    public bool getMoveOk()
+    {
+        return moveOk;
     }
 
     //ターゲット取得用

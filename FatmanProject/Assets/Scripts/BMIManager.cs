@@ -9,7 +9,7 @@ public class BMIManager : MonoBehaviour {
 
     //T・FiPを増やすスピードを変える
     private float tIncrement = 3f;
-    
+
     //BMIゲージ(slider)
     private Slider BMIguage;
 
@@ -98,7 +98,7 @@ public class BMIManager : MonoBehaviour {
     int i = 0;
     float skilTime = 0f;
     private bool skillOn = false;
-    
+
     //プレイヤーとコントローラー
     private GameObject player;
     private Controller con;
@@ -118,12 +118,12 @@ public class BMIManager : MonoBehaviour {
         return bmi;
     }
 
-	//スクリーンのボタン配列
-	private Button[] screenButton = new Button[3];
+    //スクリーンのボタン配列
+    private Button[] screenButton = new Button[3];
 
-	private string sName;
+    private string sName;
 
-    void Start () {
+    void Start() {
         //プレイヤー
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -213,10 +213,7 @@ public class BMIManager : MonoBehaviour {
         cutIns[1].SetActive(false);
         cutIns[2].SetActive(false);
 
-		//スキルボタン取得
-		getSkillButton();
     }
-
 
     void Update () {
         //BMI・Tゲージ監視
@@ -245,9 +242,10 @@ public class BMIManager : MonoBehaviour {
     //スキルボタンを配列に
     public void getSkillButton()
 	{
+        //GameObject g = screen.transform.GetChild(2).GetChild(0).gameObject;
 		int j = 1;
-
-		for (int i = 0; i < 3; i++)
+        //Screen/Button/Buttons/
+        for (int i = 0; i < 3; i++)
 		{
 			switch(i){
 			case 0:
@@ -261,12 +259,13 @@ public class BMIManager : MonoBehaviour {
 				break;
 			}
 
-			screenButton[i] = GameObject.Find(sName).GetComponent<Button>();
-			j++;
+            //screenButton[i] = g.transform.GetChild(j).gameObject.GetComponent<Button>();
+            screenButton[i] = GameObject.Find(sName).GetComponent<Button>();
+            j++;
 			//print("screenButton" + screenButton[i]);
 			screenButton[i].interactable = false;
 		}
-	}
+    }
 
     //BMIゲージの色・値変更
     public void changeBMIguage()
@@ -407,7 +406,7 @@ public class BMIManager : MonoBehaviour {
         }
         else if(skillOn == true)
         {
-            //print("skilOn");
+            print("skilOn");
         }
     }
 
@@ -489,9 +488,7 @@ public class BMIManager : MonoBehaviour {
         }
         i = 0;
         //print("SkillTime: " + skilTime);
-        print("End of SonicCol");
         anim.SetTrigger("OffSkill");
-        print("anim.setTrigger(off)");
         skilTime = 0f;
         SonicBody.transform.position = new Vector3(0f, 2f, 2f);
         SonicBody.SetActive(false);
@@ -501,7 +498,7 @@ public class BMIManager : MonoBehaviour {
     //ラッシュ本体
     IEnumerator SkillHundred()
     {
-        anim.SetTrigger("SkillRush");
+        anim.SetBool("SkillRushBool", true);
         skillOn = true;
         while (hundred == true)
         {
@@ -520,12 +517,11 @@ public class BMIManager : MonoBehaviour {
                 hundred = false;
             }
         }
-        i = 0;
-        //print("skillTime: " + skilTime);
-        anim.SetTrigger("OffSkill");
-        print("anim.setTrigger(off)");
+        anim.SetBool("SkillRushBool", false);
         skilTime = 0f;
         skillOn = false;
+        i = 0;
+        //print("skillTime: " + skilTime);
         yield break;
     }
 
@@ -554,7 +550,7 @@ public class BMIManager : MonoBehaviour {
             }
         }
         i = 0;
-        //print("skillTime: " + skilTime);
+        print("skillTime: " + skilTime);
         skilTime = 0f;
         skillOn = false;
         yield break;
@@ -578,19 +574,19 @@ public class BMIManager : MonoBehaviour {
         switch (itemName)
         {
             case 0:
-                //print("おむすび");
+                //print("コーラ 96kcal");
                 healPoint = 15f;
                 break;
             case 1:
-                //print("コーラ");
+                //print("おむすび179kcal");
                 healPoint = 20f;
                 break;
             case 2:
-                //print("ポテチ");
+                //print("肉まん251kcal");
                 healPoint = 30f;
                 break;
             case 3:
-                //print("ピザ");
+                //print("ポテチ569kcal");
                 healPoint = 50f;
                 break;
             case 4:
@@ -602,6 +598,7 @@ public class BMIManager : MonoBehaviour {
                 break;
         }
         con.incBMI(healPoint);
+
         return bmi;
     }
 }

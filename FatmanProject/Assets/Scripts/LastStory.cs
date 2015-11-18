@@ -26,7 +26,7 @@ public class LastStory : MonoBehaviour {
         clearModal = GameObject.Find("ClearModal");
         skipButton = GameObject.Find("SkipButton");
         clearModal.SetActive(false);
-        epilogueText = "四坊英雄がいじめっこ委員会役員を全員更正させたため、ついにいじめはなくなった。\nしかし、世界にはまだまだいじめは存在する、偶然手にいれたT·FiP という力であったが、四坊英雄は世界のいじめをなくすため旅だったのであった。\n行け四坊英雄、君ならいじめをなくしいじめられっこをたくさん助けることができる。\nなぜならば君は、いじめに泣かせれていた頃の君ではなく、いじめられっこを助けられるヒーローなのだから。\n　　　　　　　　　\n　　　　　　　　　　　\n　　　　　　　　　　　\n　　　　　　\n　　　　　　　　　\n　　　　　　　　　\n　　　　\n　　　　　　\n　　　　　　　　\n　　　　　　\n　　　　　　　\n\n\n\n";
+        epilogueText = "四坊英雄がいじめっこ委員会役員を全員更正させたため、ついにいじめはなくなった。\nしかし、世界にはまだまだいじめは存在する。\n偶然手にいれたT·FiPという力であったが、四坊英雄は世界のいじめをなくすため旅だったのであった。\n行け四坊英雄、君ならいじめをなくしいじめられっこをたくさん助けることができる。\nなぜならば君は、いじめに泣かせれていた頃の君ではなく、いじめられっこを助けられる\n「ヒーロー」\nなのだから。\n　　　　　　　　　\n　　　　　　　　　　　\n　　　　　　　　　　　\n　　　　　　\n　　　　　　　　　\n　　　　　　　　　\n　　　　\n　　　　　　\n　　　　　　　　\n　　　　　　\n　　　　　　　\n\n\n\n";
         wordsText = "どれだけ今日が暗くても明日はきっと明るいはずそんな希望を持ち続けていれば暗い日も少なくなるはず　　　希望を捨てたら途端に光のない闇の中だけど　　　希望があれば少しは明るい　　　僕は希望を持ち続けるよ君はどうかな　　　　　さぁがんばろう外に出よう 引きこもっていては気持ちは内向き気持ちを外に向けよう　　　　　　　    　今日は雨でも曇りでも　　きっと晴れるよ今辛いならそれは今だけ  信じてみようきっとよくなるよ　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　";
         StartCoroutine(storyWriter(epilogueText));
         StartCoroutine(wordsWriter(wordsText));
@@ -59,7 +59,7 @@ public class LastStory : MonoBehaviour {
         yield return null;
         while(len < str.Length)
         {
-            epilogue.transform.Translate(epilogue.transform.up * Time.deltaTime * 58);
+            epilogue.transform.Translate(epilogue.transform.up * Time.deltaTime * 48, Space.World);
             sb.Append(str.Substring(len, 1));
             text.text = sb.ToString();
             len++;
